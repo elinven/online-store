@@ -1,14 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./assets/ico/favicon.ico" type="image/x-icon">
-  <title>Online-Store</title>
-</head>
-<body>
-  <h1>Hello World</h1>
-  <div class="super-image"></div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/ico/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Online Store</title>
+  </head>
+  <!--TODO: поделить на компоненты-->
+  <body>
+    <header class="header">
+      <a href="./">
+        <div class="header-logo">
+          <img
+            class="header-logo-bag"
+            src="./assets/img/icons/shopping-bag.svg"
+            alt="shopping bag"
+          />
+          <h1 class="header-logo-text">Online Store</h1>
+        </div>
+      </a>
+      <h2 class="header-total">Cart Total: 500$</h2>
+      <a href="./"
+        ><img
+          class="header-shopping-cart"
+          src="./assets/img/icons/shopping-cart.svg"
+          alt="shopping cart"
+      /></a>
+    </header>
+    <main class="main">
+      <div class="filter-wrapper">
+        <div class="filter-wrapper-option">Category</div>
+        <div class="filter-wrapper-option">Brand</div>
+        <div class="filter-wrapper-option">Price</div>
+        <div class="filter-wrapper-option">Stock</div>
+      </div>
+      <div class="goods-wrapper">
+        <div class="sort-and-search-wrapper">
+          <form action="">
+            <select id="sort-select">
+              <option value="">Please choose an option</option>
+              <option value="">Alphabet ASC</option>
+              <option value="">Alphabet DESC</option>
+              <option value="">Price ASC</option>
+              <option value="">PRICE DESC</option>
+            </select>
+            <input class="sort-button" type="button" value="Sort" />
+          </form>
+          <form action="">
+            <input class="goods-search" placeholder="find item" type="text" />
+            <input class="search-button" type="button" value="Search" />
+          </form>
+        </div>
+        <div class="goods-showcase">
+          <div class="goods-item">
+            <div class="goods-item-name">Item name</div>
+            <ul class="goods-item-info">
+              <li class="goods-item-info-category">category</li>
+              <li class="goods-item-info-brand">brand</li>
+              <li class="goods-item-info-price">price</li>
+              <li class="goods-item-info-discount">discount</li>
+              <li class="goods-item-info-rating">rating</li>
+              <li class="goods-item-info-stock">stock</li>
+            </ul>
+            <button class="goods-item-add">Add to cart</button>
+            <button class="goods-item-details">Details</button>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-name">Item name</div>
+            <ul class="goods-item-info">
+              <li class="goods-item-info-category">category</li>
+              <li class="goods-item-info-brand">brand</li>
+              <li class="goods-item-info-price">price</li>
+              <li class="goods-item-info-discount">discount</li>
+              <li class="goods-item-info-rating">rating</li>
+              <li class="goods-item-info-stock">stock</li>
+            </ul>
+            <button class="goods-item-add">Add to cart</button>
+            <button class="goods-item-details">Details</button>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-name">Item name</div>
+            <ul class="goods-item-info">
+              <li class="goods-item-info-category">category</li>
+              <li class="goods-item-info-brand">brand</li>
+              <li class="goods-item-info-price">price</li>
+              <li class="goods-item-info-discount">discount</li>
+              <li class="goods-item-info-rating">rating</li>
+              <li class="goods-item-info-stock">stock</li>
+            </ul>
+            <button class="goods-item-add">Add to cart</button>
+            <button class="goods-item-details">Details</button>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-name">Item name</div>
+            <ul class="goods-item-info">
+              <li class="goods-item-info-category">category</li>
+              <li class="goods-item-info-brand">brand</li>
+              <li class="goods-item-info-price">price</li>
+              <li class="goods-item-info-discount">discount</li>
+              <li class="goods-item-info-rating">rating</li>
+              <li class="goods-item-info-stock">stock</li>
+            </ul>
+            <button class="goods-item-add">Add to cart</button>
+            <button class="goods-item-details">Details</button>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-name">Item name</div>
+            <ul class="goods-item-info">
+              <li class="goods-item-info-category">category</li>
+              <li class="goods-item-info-brand">brand</li>
+              <li class="goods-item-info-price">price</li>
+              <li class="goods-item-info-discount">discount</li>
+              <li class="goods-item-info-rating">rating</li>
+              <li class="goods-item-info-stock">stock</li>
+            </ul>
+            <button class="goods-item-add">Add to cart</button>
+            <button class="goods-item-details">Details</button>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-name">Item name</div>
+            <ul class="goods-item-info">
+              <li class="goods-item-info-category">category</li>
+              <li class="goods-item-info-brand">brand</li>
+              <li class="goods-item-info-price">price</li>
+              <li class="goods-item-info-discount">discount</li>
+              <li class="goods-item-info-rating">rating</li>
+              <li class="goods-item-info-stock">stock</li>
+            </ul>
+            <button class="goods-item-add">Add to cart</button>
+            <button class="goods-item-details">Details</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <h2>Online Store 2022-2023</h2>
+    </footer>
+  </body>
 </html>
