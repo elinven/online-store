@@ -23,7 +23,7 @@ const baseConfig = {
         type: 'asset/resource',
         generator: {
           filename: 'assets/img/[name][ext]'
-        }
+       }
       },
       { test: /\.ts$/i, use: 'ts-loader' },
       {
@@ -38,7 +38,6 @@ const baseConfig = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, './dist'),
-    assetModuleFilename: 'src/assets/images/[name].[ext]',
   },
   plugins: [
     new HtmlWebpackPlugin({
