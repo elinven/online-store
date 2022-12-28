@@ -12,14 +12,14 @@ a{
 button{
   font-family: 'Montserrat', sans-serif;
   padding: 4px;
-  background-color: rgb(147,235,254);
+  background-color: #c3e5f8;
   cursor:pointer;
   border: 1px solid #333333;
   font-weight: 600;
 }
 
 button:hover{
-  background-color: rgba(3,126,154,1);;
+  background-color: #3681AB;
 }
 
 header{
@@ -44,7 +44,7 @@ header{
 
 .header-logo:hover{
   transition: 0.5s;
-  background-color: rgba(3,126,154,1);
+  background-color: #3681AB;
 }
 
 .header-shopping-cart{
@@ -90,6 +90,9 @@ main{
   flex-direction: column;
   align-items: center;
   border: 1px solid #333333;
+  background: rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+  padding: 10px;
 }
 
 .goods-showcase{
@@ -110,9 +113,10 @@ main{
   border: 1px solid #333333;
   width: 200px;
   height: 260px;
-  background: #DBD1E9;
+  background: linear-gradient(0deg, rgba(152,155,190,1) 0%, rgba(219,209,233,1) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0px 8px 16px #333333;
 }
 
 .goods-item-upper-section{
@@ -131,6 +135,18 @@ main{
   justify-content: center;
   border-top: 1px solid #333333;
   border-bottom: 1px solid #333333;
+}
+
+.goods-item-photo-wrapper{
+  border-right: 1px solid #333333;
+  border-left: 1px solid #333333;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/img/redmi-note5.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .goods-item-photo{
@@ -157,7 +173,7 @@ main{
 }
 
 .goods-item-buttons{
-  width: 50%;
+  width: 66%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -173,6 +189,11 @@ main{
   justify-content: center;
   width: 32px;
   height: 24px;
+}
+
+.goods-item-details{
+  font-size: 1em;
+  width: 80px;
 }
 
 footer{
