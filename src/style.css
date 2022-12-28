@@ -1,0 +1,7 @@
+.super-image{
+  background-image: url(assets/img/test-image.png);
+  background-position: center;
+  border: 1px solid red;
+  width: 400px;
+  height: 400px;
+}
