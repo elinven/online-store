@@ -1,14 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./assets/ico/favicon.ico" type="image/x-icon">
-  <title>Online-Store</title>
-</head>
-<body>
-  <h1>Hello World</h1>
-  <div class="super-image"></div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/ico/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Online Store</title>
+  </head>
+  <!--TODO: поделить на компоненты-->
+  <body>
+    <header class="header">
+      <a href="./">
+        <div class="header-logo">
+          <img
+            class="header-logo-bag"
+            src="./assets/img/icons/shopping-bag.svg"
+            alt="shopping bag"
+            width="30"
+            height="30"
+          />
+          <h1 class="header-logo-text">Online Store</h1>
+        </div>
+      </a>
+      <h2 class="header-total">Cart Total: 500$</h2>
+      <a href="./"
+        ><img
+          class="header-shopping-cart"
+          src="./assets/img/icons/shopping-cart.svg"
+          alt="shopping cart"
+          width="30"
+          height="30"
+      /></a>
+    </header>
+    <main class="main">
+      <div class="filter-wrapper">
+        <div class="filter-wrapper-option">Category</div>
+        <div class="filter-wrapper-option">Brand</div>
+        <div class="filter-wrapper-option">Price</div>
+        <div class="filter-wrapper-option">Stock</div>
+      </div>
+      <div class="goods-wrapper">
+        <div class="sort-and-search-wrapper">
+          <form class="sort-wrapper" action="">
+            <select class="sort-select" id="sort-select">
+              <option value="">Please choose an option</option>
+              <option value="">Alphabet ASC</option>
+              <option value="">Alphabet DESC</option>
+              <option value="">Price ASC</option>
+              <option value="">PRICE DESC</option>
+            </select>
+            <input class="sort-button" type="button" value="Sort" />
+          </form>
+          <form class="search-wrapper" action="">
+            <input class="goods-search" placeholder="find item" type="text" />
+            <input class="search-button" type="button" value="Search" />
+          </form>
+        </div>
+        <div class="goods-showcase">
+          <div class="goods-item">
+            <div class="goods-item-upper-section">
+              <h3 class="goods-item-name">Redmi Note 5</h3>
+              <div class="goods-item-category-and-brand-wrapper">
+                <p class="goods-item-info-brand">Xiaomi</p>
+                <p class="goods-item-info-category">Smartphones</p>
+              </div>
+            </div>
+            <div class="goods-item-photo-wrapper">
+            </div>
+            <div class="goods-item-info">
+              <div class="goods-item-info-price"><b>50$</b></div>
+              <div class="goods-item-info-discount"><i>(-10%)</i></div>
+            </div>
+            <div class="goods-item-lower-section">
+              <div class="goods-item-rating-and-stock">
+                <div class="goods-item-rating"><b>4,5</b>★</div>
+                <div class="goods-item-stock"><b>35</b> left</div>
+              </div>
+              <div class="goods-item-buttons">
+                <button class="goods-item-button goods-item-add">+</button>
+                <button class="goods-item-button goods-item-details">Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-upper-section">
+              <h3 class="goods-item-name">Redmi Note 5</h3>
+              <div class="goods-item-category-and-brand-wrapper">
+                <p class="goods-item-info-brand">Xiaomi</p>
+                <p class="goods-item-info-category">Smartphones</p>
+              </div>
+            </div>
+            <div class="goods-item-photo-wrapper">
+            </div>
+            <div class="goods-item-info">
+              <div class="goods-item-info-price"><b>50$</b></div>
+              <div class="goods-item-info-discount"><i>(-10%)</i></div>
+            </div>
+            <div class="goods-item-lower-section">
+              <div class="goods-item-rating-and-stock">
+                <div class="goods-item-rating"><b>4,5</b>★</div>
+                <div class="goods-item-stock"><b>35</b> left</div>
+              </div>
+              <div class="goods-item-buttons">
+                <button class="goods-item-button goods-item-add">+</button>
+                <button class="goods-item-button goods-item-details">Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-upper-section">
+              <h3 class="goods-item-name">Redmi Note 5</h3>
+              <div class="goods-item-category-and-brand-wrapper">
+                <p class="goods-item-info-brand">Xiaomi</p>
+                <p class="goods-item-info-category">Smartphones</p>
+              </div>
+            </div>
+            <div class="goods-item-photo-wrapper">
+            </div>
+            <div class="goods-item-info">
+              <div class="goods-item-info-price"><b>50$</b></div>
+              <div class="goods-item-info-discount"><i>(-10%)</i></div>
+            </div>
+            <div class="goods-item-lower-section">
+              <div class="goods-item-rating-and-stock">
+                <div class="goods-item-rating"><b>4,5</b>★</div>
+                <div class="goods-item-stock"><b>35</b> left</div>
+              </div>
+              <div class="goods-item-buttons">
+                <button class="goods-item-button goods-item-add">+</button>
+                <button class="goods-item-button goods-item-details">Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-upper-section">
+              <h3 class="goods-item-name">Redmi Note 5</h3>
+              <div class="goods-item-category-and-brand-wrapper">
+                <p class="goods-item-info-brand">Xiaomi</p>
+                <p class="goods-item-info-category">Smartphones</p>
+              </div>
+            </div>
+            <div class="goods-item-photo-wrapper">
+            </div>
+            <div class="goods-item-info">
+              <div class="goods-item-info-price"><b>50$</b></div>
+              <div class="goods-item-info-discount"><i>(-10%)</i></div>
+            </div>
+            <div class="goods-item-lower-section">
+              <div class="goods-item-rating-and-stock">
+                <div class="goods-item-rating"><b>4,5</b>★</div>
+                <div class="goods-item-stock"><b>35</b> left</div>
+              </div>
+              <div class="goods-item-buttons">
+                <button class="goods-item-button goods-item-add">+</button>
+                <button class="goods-item-button goods-item-details">Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-upper-section">
+              <h3 class="goods-item-name">Redmi Note 5</h3>
+              <div class="goods-item-category-and-brand-wrapper">
+                <p class="goods-item-info-brand">Xiaomi</p>
+                <p class="goods-item-info-category">Smartphones</p>
+              </div>
+            </div>
+            <div class="goods-item-photo-wrapper">
+            </div>
+            <div class="goods-item-info">
+              <div class="goods-item-info-price"><b>50$</b></div>
+              <div class="goods-item-info-discount"><i>(-10%)</i></div>
+            </div>
+            <div class="goods-item-lower-section">
+              <div class="goods-item-rating-and-stock">
+                <div class="goods-item-rating"><b>4,5</b>★</div>
+                <div class="goods-item-stock"><b>35</b> left</div>
+              </div>
+              <div class="goods-item-buttons">
+                <button class="goods-item-button goods-item-add">+</button>
+                <button class="goods-item-button goods-item-details">Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-upper-section">
+              <h3 class="goods-item-name">Redmi Note 5</h3>
+              <div class="goods-item-category-and-brand-wrapper">
+                <p class="goods-item-info-brand">Xiaomi</p>
+                <p class="goods-item-info-category">Smartphones</p>
+              </div>
+            </div>
+            <div class="goods-item-photo-wrapper">
+            </div>
+            <div class="goods-item-info">
+              <div class="goods-item-info-price"><b>50$</b></div>
+              <div class="goods-item-info-discount"><i>(-10%)</i></div>
+            </div>
+            <div class="goods-item-lower-section">
+              <div class="goods-item-rating-and-stock">
+                <div class="goods-item-rating"><b>4,5</b>★</div>
+                <div class="goods-item-stock"><b>35</b> left</div>
+              </div>
+              <div class="goods-item-buttons">
+                <button class="goods-item-button goods-item-add">+</button>
+                <button class="goods-item-button goods-item-details">Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="goods-item">
+            <div class="goods-item-upper-section">
+              <h3 class="goods-item-name">Redmi Note 5</h3>
+              <div class="goods-item-category-and-brand-wrapper">
+                <p class="goods-item-info-brand">Xiaomi</p>
+                <p class="goods-item-info-category">Smartphones</p>
+              </div>
+            </div>
+            <div class="goods-item-photo-wrapper">
+            </div>
+            <div class="goods-item-info">
+              <div class="goods-item-info-price"><b>50$</b></div>
+              <div class="goods-item-info-discount"><i>(-10%)</i></div>
+            </div>
+            <div class="goods-item-lower-section">
+              <div class="goods-item-rating-and-stock">
+                <div class="goods-item-rating"><b>4,5</b>★</div>
+                <div class="goods-item-stock"><b>35</b> left</div>
+              </div>
+              <div class="goods-item-buttons">
+                <button class="goods-item-button goods-item-add">+</button>
+                <button class="goods-item-button goods-item-details">Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <h2>Online Store 2022-2023</h2>
+    </footer>
+  </body>
 </html>
