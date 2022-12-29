@@ -32,6 +32,7 @@ header{
   box-shadow: 0px 1px 16px #333333;
   padding: 20px 100px;
   width: 100%;
+  z-index: 2;
 }
 
 .header-logo{
@@ -66,15 +67,16 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: rgb(147,235,254);
-  background: linear-gradient(0deg, #3681AB 0%, #AED7ED 100%);
+  background: #AED7ED;
   background-repeat: no-repeat;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
 }
 
 main{
-  margin: 20px 100px;
+  padding: 20px 100px;
+  background: linear-gradient(0deg, #3681AB 0%, #AED7ED 100%);
+  background-repeat: no-repeat;
 }
 
 .filter-wrapper{
@@ -93,6 +95,55 @@ main{
   background: rgba(0, 0, 0, 0.3);
   margin-top: 10px;
   padding: 10px;
+}
+
+.sort-and-search-wrapper{
+  margin: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.sort-wrapper, .search-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sort-select, .goods-search{
+  padding: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #333333;
+  border-radius: 6px;
+}
+
+.sort-button, .search-button{
+  border-radius: 6px;
+  border: 1px solid #333333;
+  background-color: #c3e5f8;
+  font-size: 1em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 24px;
+  color: #333333;
+}
+
+.search-button{
+  width: 72px;
+}
+
+.sort-button:hover, .search-button:hover{
+  cursor: pointer;
+  background-color: #3681AB;
 }
 
 .goods-showcase{
@@ -206,4 +257,5 @@ footer{
   justify-content: center;
   box-shadow: 0px 0px 8px #333333;
   background: #3681AB;
+  z-index: 2;
 }
