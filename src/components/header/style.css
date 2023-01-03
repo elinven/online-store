@@ -1,0 +1,30 @@
+.cart-text,
+.cart-summa {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.cart-total {
+  width: 30px;
+  height: 30px;
+}
+
+.cart-total:hover {
+  transition: 0.3s;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.cart-content {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
