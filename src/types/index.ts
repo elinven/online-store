@@ -13,6 +13,12 @@ export interface Product {
   readonly images: string[];
 }
 
+export interface AppRoute {
+  name: string;
+  component: (par: string) => void;
+}
+
+
 export enum StatusCodes {
   Unauthorized = 401,
   NotFound = 404

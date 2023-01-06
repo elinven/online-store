@@ -1,7 +1,7 @@
 .footer {
   margin-top: auto;
   height: 80px;
-  padding: 20px 100px;
+  padding: 15px 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,6 +9,7 @@
   background: #3681AB;
   z-index: 2;
   font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
 }
 
 .footer-left,
@@ -20,13 +21,31 @@
 }
 
 .github {
-  transition: 0.3s all;
+  width: 50px;
+  height: 50px;
+  background-image: url("../../assets/svg/github.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.3s ease-in-out;
 }
 
 .github:hover {
   transition: 0.3s all;
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.app-developer {
+  font-size: 1.5rem;
+}
+
+.rsschool {
+  width: 135px;
+  height: 50px;
+  background-image: url("../../assets/svg/rsschool.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.3s ease-in-out;;
 }
 
 .footer a {

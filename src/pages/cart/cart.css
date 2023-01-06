@@ -1,13 +1,13 @@
-.page-404 {
+.cart-page {
   height: calc(100vh - 180px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  background: linear-gradient(0deg, #3681AB 0%, #AED7ED 100%);
 }
 
-.error-404 {
+.cart-components {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 500;

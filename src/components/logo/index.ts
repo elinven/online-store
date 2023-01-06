@@ -1,5 +1,5 @@
 import Component from "../component";
-import "./styles.css";
+import "./style.css";
 
 class Logo extends Component {
   private logoSvg;
@@ -9,7 +9,7 @@ class Logo extends Component {
     this.logoSvg = new Component(this.elem, "div", ["logo-svg"]);
     new Component(this.elem, "h1", ["logo-title"], "Online Store");
 
-    this.logoSvg.elem.style.backgroundImage = "./assets/svg/shopping-bag.svg";
+    //this.logoSvg.elem.style.backgroundImage = `url("../../assets/svg/shopping-bag.svg")`;
 
     this.elem.addEventListener("click", () => this.onClickLogo());
   }
