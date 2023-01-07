@@ -50,7 +50,7 @@ export class Filter extends Component {
         allCategories.forEach((el) => {
           console.log(el);
           this.filterCheckboxWrapper = new Component(this.elem, 'div', ['category-option']);
-          this.filterLabel = new Component(this.filterCheckboxWrapper.elem, 'label', [], el)
+          this.filterLabel = new Component(this.filterCheckboxWrapper.elem, 'label', ['category-label'], el)
           this.filterInput = new Component(this.filterCheckboxWrapper.elem, 'input', []);
           this.filterLabel.elem.setAttribute ('for', el)
           this.filterInput.elem.setAttribute('type', filterType);
