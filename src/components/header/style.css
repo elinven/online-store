@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #AED7ED;
+  background: var(--header-bg-color);
   box-shadow: 0px 1px 16px #333333;
   padding: 20px 100px;
   width: 100%;

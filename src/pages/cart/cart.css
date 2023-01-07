@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(0deg, #3681AB 0%, #AED7ED 100%);
+  background: var(--bg-color);
 }
 
 .cart-components {
