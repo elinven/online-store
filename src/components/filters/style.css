@@ -10,6 +10,7 @@
 }
 
 .filter-wrapper{
+  height: 100%;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -21,7 +22,7 @@
 }
 
 .filter-wrapper-option{
-  height: 300px;
+  max-height: 250px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
