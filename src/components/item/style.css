@@ -61,7 +61,7 @@
   background-color: white;
   height: 100%;
   width: 100%;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -81,12 +81,28 @@
   border-bottom: 1px solid var(--border-color);
 }
 
+.goods-item-info-price{
+  font-weight: bold;
+}
+
+.goods-item-info-discount{
+  font-style: italic;
+}
+
 .goods-item-lower-section{
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.goods-item-rating{
+  font-weight: bold;
+}
+
+.goods-item-stock{
+  font-weight: bold;
 }
 
 .goods-item-buttons{

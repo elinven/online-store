@@ -7,6 +7,8 @@ export class Item extends Component {
   private itemCatAndBrandWrap: Component | undefined;
   private itemPhoto: Component | undefined;
   private itemPriceInfo: Component | undefined;
+  private itemLower: Component | undefined;
+  private itemRatingAndStockWrap: Component | undefined;
   private itemButtons: Component | undefined;
 
   private itemName: Component | undefined;
@@ -19,7 +21,8 @@ export class Item extends Component {
   private itemButtonAdd: Component | undefined;
   private itemButtonDetails: Component | undefined;
 
-  constructor(parentNode: HTMLElement, itemName: string, itemBrand: string, itemCategory: string,  itemImages:string) {
+  constructor(parentNode: HTMLElement, itemName: string, itemBrand: string,
+     itemCategory: string,  itemImages:string, itemPrice:string, itemDiscount:string, itemRating:string, itemStock: string) {
     super(parentNode, "div", ["goods-item"]);
 
     this.itemUpper = new Component(this.elem, 'div', ['goods-item-upper-section'])
@@ -29,7 +32,22 @@ export class Item extends Component {
     this.itemCategory = new Component(this.itemCatAndBrandWrap.elem, 'div', ['goods-item-info-category'], itemCategory)
 
     this.itemPhoto = new Component(this.elem, 'div', ['goods-item-photo-wrapper'])
-    this.itemPhoto.elem.style.background = `url(${itemImages})`;
+    this.itemPhoto.elem.style.backgroundImage = `url(${itemImages})`;
+
+    this.itemPriceInfo = new Component(this.elem, 'div', ['goods-item-info'])
+    this.itemPrice = new Component(this.itemPriceInfo.elem, 'div', ['goods-item-info-price'], `${itemPrice}$`)
+    this.itemDiscount = new Component(this.itemPriceInfo.elem, 'div', ['goods-item-info-discount'], `(-${itemDiscount}%)`)
+
+    this.itemLower = new Component(this.elem, 'div', ['goods-item-lower-section'])
+    this.itemRatingAndStockWrap = new Component(this.itemLower.elem, 'div', ['goods-item-rating-and-stock'])
+    this.itemRating = new Component(this.itemRatingAndStockWrap.elem, 'div', ['goods-item-rating'], `${itemRating}★`)
+    this.itemStock = new Component(this.itemRatingAndStockWrap.elem, 'div', ['goods-item-stock'], `${itemStock} left`)
+
+    this.itemButtons = new Component(this.itemLower.elem, 'div', ['goods-item-buttons'])
+    this.itemButtonDetails = new Component(this.itemButtons.elem, 'button', ['goods-item-button', 'goods-item-details'], 'Details')
+    this.itemButtonAdd = new Component(this.itemButtons.elem, 'button', ['goods-item-button', 'goods-item-add'], '+')
+
+
 
 /*     if(filterType === 'range'){
       const minMax:Array<number> = [];

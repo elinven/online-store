@@ -13,7 +13,7 @@ export class Items extends Component {
 
     cardsInfo().then((res) => {
       res.products.forEach((el: Product) => {
-        this.itemExample = new Item(this.elem, el.title, el.brand, el.category, el.images[0])
+        this.itemExample = new Item(this.elem, el.title, el.brand, el.category, el.images[0], el.price.toString(), el.discountPercentage.toString(), el.rating.toString(), el.stock.toString())
 /*         this.itemUpper = new Component(this.elem, 'div', ['up']);
         this.itemPhoto = new Component(this.elem, 'div', ['photo']);
         this.itemPriceInfo = new Component(this.elem, 'div', []);
