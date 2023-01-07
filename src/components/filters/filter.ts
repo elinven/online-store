@@ -1,28 +1,35 @@
 import Component from "../component";
 import "./style.css";
-/* import cardsInfo from "../goods" */
+import cardsInfo from "../goods"
+import {Product} from "../../types/index"
+
 
 export class Filter extends Component {
-  private categoryFilter;
-  private brandFilter;
-  private priceFilter;
-  private stockFilter;
 
-  constructor(parentNode: HTMLElement) {
-    super(parentNode, "div", ["filter-wrapper"]);
+  private filterName;
+  private filterInput;
 
-    this.categoryFilter = new Component(this.elem, "div", ["filter-wrapper-option"]);
-    this.brandFilter = new Component(this.elem, "div", ["filter-wrapper-option"]);
-    this.priceFilter = new Component(this.elem, "div", ["filter-wrapper-option"]);
-    this.stockFilter = new Component(this.elem, "div", ["filter-wrapper-option"]);
+  constructor(parentNode: HTMLElement, filterType: string, filterName: string) {
+    super(parentNode, "div", ["filter-wrapper-option"]);
 
+    this.filterName = new Component(this.elem, 'h2', []);
+    this.filterInput = new Component(this.elem, 'input', []);
 
-    //this.githubLogo.elem.style.backgroundImage = `url("../../assets/svg/github.svg")`;
-/*     this.firstTeamDeveloperLink.elem.setAttribute("href", "https://github.com/elinven");
-    this.firstTeamDeveloperLink.elem.setAttribute("target", "_blank");
-    this.secondTeamDeveloperLink.elem.setAttribute("href", "https://github.com/slysnek");
-    this.secondTeamDeveloperLink.elem.setAttribute("target", "_blank");
-    this.rsschool.elem.setAttribute("href", "https://rs.school/js/"); */
-    //this.footerRightContainer.elem.style.backgroundImage = `url("../../assets/svg/rsshool.svg")`;
+    this.filterName.elem.textContent = filterName;
+    this.filterInput.elem.setAttribute('type', filterType);
+    
+    if(filterType === 'range' && filterName === 'Stock'){
+      const minMax:Array<number> = [];
+      cardsInfo().then((res) => {
+        console.log(res);
+        res.products.forEach((el:Product) => {
+          minMax.push(el.stock)
+        });
+        minMax.sort((a, b) => a - b)
+        this.filterInput.elem.setAttribute('min', minMax[0].toString())
+        this.filterInput.elem.setAttribute('max', minMax[minMax.length-1].toString())
+      });
+    }
+   
   }
 }
