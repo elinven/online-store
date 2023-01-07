@@ -21,7 +21,6 @@ export class Filter extends Component {
       const minMax:Array<number> = [];
       cardsInfo().then((res) => {
         res.products.forEach((el:Product) => {
-          console.log(el);
           if(filterName === 'Stock'){
             minMax.push(el.stock);
           } else{
@@ -48,7 +47,6 @@ export class Filter extends Component {
         });
         const allCategories = new Set(...[categories]);
         allCategories.forEach((el) => {
-          console.log(el);
           this.filterCheckboxWrapper = new Component(this.elem, 'div', ['category-option']);
           this.filterLabel = new Component(this.filterCheckboxWrapper.elem, 'label', ['category-label'], el)
           this.filterInput = new Component(this.filterCheckboxWrapper.elem, 'input', []);
