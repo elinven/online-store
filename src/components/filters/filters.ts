@@ -18,12 +18,5 @@ export class Filters extends Component {
     this.filterOption3 = new Filter(this.elem, 'checkbox', 'Brand');
     this.filterOption4 = new Filter(this.elem, 'checkbox', 'Category');
    
-    //this.githubLogo.elem.style.backgroundImage = `url("../../assets/svg/github.svg")`;
-/*     this.firstTeamDeveloperLink.elem.setAttribute("href", "https://github.com/elinven");
-    this.firstTeamDeveloperLink.elem.setAttribute("target", "_blank");
-    this.secondTeamDeveloperLink.elem.setAttribute("href", "https://github.com/slysnek");
-    this.secondTeamDeveloperLink.elem.setAttribute("target", "_blank");
-    this.rsschool.elem.setAttribute("href", "https://rs.school/js/"); */
-    //this.footerRightContainer.elem.style.backgroundImage = `url("../../assets/svg/rsshool.svg")`;
   }
 }
