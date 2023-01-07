@@ -5,7 +5,7 @@ export interface Product {
   readonly price: number;
   readonly discountPercentage: number;
   readonly rating: number;
-  readonly stock: number
+  readonly stock: number;
   readonly brand: string;
   readonly category: string;
   readonly country: string;
