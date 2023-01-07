@@ -1,0 +1,130 @@
+.goods-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-left: none;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+.goods-showcase{
+  display: flex;
+  padding: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.goods-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  width: 200px;
+  height: 260px;
+  background: var(--filter-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0px 4px 16px #222222;
+}
+
+.goods-item-name{
+  text-align: center;
+}
+
+.goods-item-upper-section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.goods-item-category-and-brand-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.goods-item-photo-wrapper{
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.goods-item-photo{
+  height: 100%;
+  width: 100%;
+}
+
+.goods-item-info{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.goods-item-info-price{
+  font-weight: bold;
+}
+
+.goods-item-info-discount{
+  font-style: italic;
+}
+
+.goods-item-lower-section{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.goods-item-rating{
+  font-weight: bold;
+}
+
+.goods-item-stock{
+  font-weight: bold;
+}
+
+.goods-item-buttons{
+  width: 66%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.goods-item-button{
+  border-radius: 6px;
+  font-size: 1.2em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+}
+
+.goods-item-details{
+  font-size: 1em;
+  width: 80px;
+}

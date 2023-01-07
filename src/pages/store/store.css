@@ -1,9 +1,7 @@
 .store-page {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg-color);
+  flex-direction: row;
+  padding: 20px 100px;
 }
 
 .store-content {
