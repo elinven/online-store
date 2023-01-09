@@ -4,11 +4,11 @@ class Component {
   constructor(parentNode: HTMLElement,
               tagName: keyof HTMLElementTagNameMap = "div",
               styles: string[] = [],
-              content = "")
+              textContent = "")
   {
     this.elem = document.createElement(tagName);
     this.elem.classList.add(...styles);
-    this.elem.textContent = content;
+    this.elem.textContent = textContent;
 
     if (parentNode) {
       parentNode.append(this.elem);

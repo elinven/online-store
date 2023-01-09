@@ -1,0 +1,95 @@
+.card-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  color: orange;
+}
+
+.card {
+  width: 278px;
+  height: 114px;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid orange;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg,rgb(0,9,36) 6%,rgb(9,9,121) 34%,rgb(0,212,255) 100%);
+}
+
+.card-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-logo {
+  width: 50px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 0.5rem;
+}
+
+.card-img {
+  width: 40px;
+  height: 20px;
+}
+
+.valid-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-valid {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.valid-text,
+.cvv-text {
+  font-size: 0.75rem;
+}
+
+.card-data {
+  width: 80px;
+}
+
+.card-cvv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-code {
+  width: 80px;
+}
+
+.app-input {
+  min-height: 25px;
+  outline: none;
+  border: 1px solid orange;
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.card-error,
+.valid-error,
+.cvv-error {
+  color: red;
+}

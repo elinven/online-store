@@ -5,7 +5,7 @@ import "./style.css";
 export class Header extends Component {
   private appLogo: Logo;
   public cartCost;
-  public cartText;
+  private cartText;
   public cartSumma;
   private cartTotal;
   public cartContent;

@@ -1,3 +1,9 @@
+.scroll-lock {
+  height: 100%;
+  margin: 0;
+  overflow-y: hidden;
+}
+
 .cart-page {
   height: calc(100vh - 180px);
   display: flex;
