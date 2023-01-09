@@ -1,0 +1,13 @@
+.product-buttons {
+  width: 185px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.good-price {
+  font-size: 2rem;
+  color: var(--font-color);
+}

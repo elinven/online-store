@@ -1,4 +1,5 @@
 import Component from "../../components/component";
+//import ProductButtons from "../../components/details/product-buttons";
 import "./product.css";
 
 export class ProductPage extends Component {
