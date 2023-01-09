@@ -2,6 +2,8 @@ import Component from "../components/component";
 import { Router } from "../router/index";
 import { Header } from "../components/header/index";
 import { Footer } from "../components/footer/index";
+import { Model } from "../model/Model";
+import cardsInfo from "../components/goods";
 
 export class App {
   private header;
@@ -17,7 +19,18 @@ export class App {
   }
 
   start(): void {
-    this.router.initRouter();
-  }
+    const model = new Model();
 
+    cardsInfo().then((res) => {
+
+      const state = model.getState();
+
+      model.setState({
+        ...state,
+        products: res.products,
+      });
+
+      this.router.initRouter(model);
+    });
+  }
 }

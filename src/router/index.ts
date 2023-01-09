@@ -4,27 +4,30 @@ import { StorePage } from "../pages/store/store";
 import { ProductPage } from "../pages/product/product";
 import { CartPage } from "../pages/cart/cart";
 import { Page404 } from "../pages/page404/page404";
+import { Model } from "../model/Model";
 
 export class Router {
+  model: Model;
   private routes: Array<AppRoute>;
   //private readonly routesArr: Array<AppRoute>;
   private defaultRoute: AppRoute;
 
   //onInitUserCart: () => void;
 
-  storePage: Component;
-  productPage: Component | undefined;
+  storePage?: Component;
+  productPage?: Component;
   cartPage: Component | undefined;
   errorPage: Component | undefined;
   currentRoute: string;
 
   constructor(private rootElement: HTMLElement) {
-    this.storePage = new StorePage(this.rootElement);
+    this.model = new Model();
     //this.onInitUserCart = () => onInitCart();
     this.routes = [
       {
         name: "/",
-        component: () => {
+        component: (params, model) => {
+          this.storePage = new StorePage(this.rootElement, model);
           this.rootElement.append(this.storePage.elem);
         },
       },
@@ -36,15 +39,15 @@ export class Router {
         },
       },*/
       {
-        name: "/product-details",
-        component: () => {
-          this.productPage = new ProductPage(this.rootElement);
+        name: "/product-details/:id",
+        component: (params, model, options) => {
+          this.productPage = new ProductPage(this.rootElement, model, options?.id);
           this.rootElement.append(this.productPage.elem);
         },
       },
       {
         name: "/cart",
-        component: () => {
+        component: (params, model) => {
           this.cartPage = new CartPage(this.rootElement);
           this.rootElement.append(this.cartPage.elem);
         },
@@ -73,7 +76,8 @@ export class Router {
   updateRouter(): void {
     this.rootElement.innerHTML = "";
     const currRouteFromHash = window.location.hash.slice(1);
-     
+    const [pagePathName, id = null] = currRouteFromHash.split('/').filter((item) => !!item);
+    
     const currRouteArray = currRouteFromHash.split("?");
     const currRouteName = currRouteArray[0];
     let currRouteParam = "";
@@ -81,14 +85,18 @@ export class Router {
       currRouteParam = String(currRouteArray[1]);
     } 
     
-    const currRoute = this.routes.find((page) => page.name === currRouteName);
-
+    const currRoute = this.routes.find((page) => (page.name === currRouteName) || (page.name === `/${pagePathName}/:id`));
+    
     if (!currRoute) {
       this.currentRoute = currRouteName;
-      this.defaultRoute.component(currRouteParam);
+      this.defaultRoute.component(currRouteParam, this.model);
     } else {
-      !currRouteParam ? window.location.hash = currRoute.name : window.location.hash = currRoute.name + "?" + currRouteParam;
-      currRoute.component(currRouteParam);
+      !currRouteParam ? window.location.hash = currRouteFromHash : window.location.hash = currRoute.name + "?" + currRouteParam;
+      if (id) {
+        currRoute.component(currRouteParam, this.model, { id: +id });
+      } else {
+        currRoute.component(currRouteParam, this.model);
+      }
       this.currentRoute = currRoute.name;
     }
     
@@ -97,7 +105,9 @@ export class Router {
     this.currentRoute = (currRoute || this.defaultRoute).name;*/
   }
 
-  initRouter(): void {
+  initRouter(model: Model): void {
+    this.model = model;
+
     if (window.location.hash === "") {
       window.location.hash = "#/";
     }
