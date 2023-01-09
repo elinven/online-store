@@ -5,8 +5,10 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  background-color: transparent;
   color: orange;
 }
+
 .card {
   width: 278px;
   height: 114px;

@@ -8,6 +8,8 @@ const PAYMENT_SYSTEMS = [
   ['6', 'https://m.unionpayintl.com/imp_file/global/wap/en/static/images/logo.png']
 ];
 
+const NO_LOGO = "https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71";
+
 export class Card extends Component {
   public cardTitle;
   public cardContent;
@@ -46,7 +48,7 @@ export class Card extends Component {
     this.cardValidThruError = new Component(this.elem, "div", ["valid-error"], "");
     this.cardCVVError = new Component(this.elem, "div", ["cvv-error"], "");
 
-    this.cardLogoImg.elem.setAttribute("src", "../../assets/img/no-logo.webp");
+    this.cardLogoImg.elem.setAttribute("src", NO_LOGO);
 
     this.cardNumber.elem.oninput = () => this.onCardNumberInput();
     this.cardValidThru.elem.oninput = () => this.onCardValidThruInput();
@@ -80,26 +82,17 @@ export class Card extends Component {
     }
   }
 
-  /*isCardValidThru = () => {
-    return /[0-1][0-2]\/\d{2}/.test(<string>this.elem.getAttribute("value"));
-  }
-
-  isCardCVV = () => {
-    return /\d{3}/.test(<string>this.elem.getAttribute("value"));
-  }*/
-
   onCardNumberInput = () => {
     const lengthValues = [4, 9, 14];
     if (this.cardNumber.elem.value.length === 0) {
-      this.cardLogoImg.elem.setAttribute("src", "../../assets/img/no-logo.webp");
+      this.cardLogoImg.elem.setAttribute("src", NO_LOGO);
     }
     if (this.cardNumber.elem.value.length === 1) {
       const paymentSystemData = PAYMENT_SYSTEMS.find((e) => e[0] === this.cardNumber.elem.value.substring(0, 1));
-      console.log(paymentSystemData);
       if (paymentSystemData) {
         this.cardLogoImg.elem.setAttribute("src", paymentSystemData[1]);
       } else {
-        this.cardLogoImg.elem.setAttribute("src", "../../assets/img/no-logo.webp");
+        this.cardLogoImg.elem.setAttribute("src", NO_LOGO);
       }
     } 
 
@@ -118,5 +111,5 @@ export class Card extends Component {
     }
   }
 
- }
+}
 

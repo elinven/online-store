@@ -1,0 +1,41 @@
+.purchase-modal {
+  position: fixed;
+  width: 510px;
+  top: -700px;
+  margin: 0 auto;
+  padding: 10px 5px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  background-color: #181a1c;
+  border: 1px solid green;
+  border-radius: 0.5rem;
+  z-index: -2;
+}
+
+.purchase-modal.open {
+  position: absolute;
+  top: 120px;
+  z-index: 99;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.25);
+}
+
+.confirm-button {
+  width: 40%;
+  height: 30px;
+  outline: none;
+  border: 1px solid orange;
+  border-radius: 0.75rem;
+  background-color: #3f1010;;
+  color: orange;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.confirm-message {
+  color: green;
+}

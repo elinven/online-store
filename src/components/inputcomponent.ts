@@ -18,8 +18,7 @@ class InputComponent {
     }
 
     //this.elem.addEventListener("input", (e) => this.getInputValue(e));
-    //if (regexp) {
-      //this.validInputValue(regexp);
+    //if (pattern) {
       this.elem.setAttribute("pattern", pattern);
     //}
   }
@@ -30,7 +29,6 @@ class InputComponent {
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   //getInputValue: (event: Event) => void = () => {};
-  //validInputValue = (rs: RegExp) => rs.test(<string>this.elem.getAttribute("value"));
 }
 
 export default InputComponent;
