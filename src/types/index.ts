@@ -1,5 +1,7 @@
+import { Model } from "../model/Model";
+
 export interface Product {
-  readonly id: string;
+  readonly id: number;
   readonly title: string;
   readonly description: string;
   readonly price: number;
@@ -15,9 +17,8 @@ export interface Product {
 
 export interface AppRoute {
   name: string;
-  component: (par: string) => void;
+  component: (par: string, model: Model, options?: { id: number }) => void;
 }
-
 
 export enum StatusCodes {
   Unauthorized = 401,
@@ -27,4 +28,18 @@ export enum StatusCodes {
 export enum Methods {
   GET = 'GET',
   POST = 'POST'
+}
+
+export interface IBaseState {
+  searchQuery: string;
+  products: Product[];
+}
+
+export type TSubscriber = (state: IBaseState) => void; 
+
+export interface IFakeDataResponse {
+  limit: number;
+  products: Product[];
+  skip: number;
+  total: number;
 }
