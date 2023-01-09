@@ -26,17 +26,14 @@ export class Header extends Component {
 
     this.appLogo.elem.addEventListener("click", () => {
       window.location.hash = "#/";
-      location.reload();
     });
 
     this.cartTotal.elem.addEventListener("click", () => {
       window.location.hash = "#/cart";
-      location.reload();
     });
 
     this.cartContent.elem.addEventListener("click", () => {
       window.location.hash = "#/cart";
-      location.reload();
     });
   }
 
