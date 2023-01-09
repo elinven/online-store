@@ -1,0 +1,3 @@
+/*!currRouteParam ? window.location.hash = (currRoute || this.defaultRoute).name : window.location.hash = (currRoute || this.defaultRoute).name + "?" + currRouteParam;
+        (currRoute || this.defaultRoute).component(currRouteParam);
+        this.currentRoute = (currRoute || this.defaultRoute).name;*/
