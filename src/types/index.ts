@@ -23,7 +23,10 @@ export interface AppRoute {
 export interface ProductCart {
   amount: number;
   summa: number;
-  goods: Product[];
+  goods: {
+    product: Product;
+    amount: number;
+  }[];
 }
 
 export enum StatusCodes {

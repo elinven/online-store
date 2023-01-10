@@ -1,7 +1,8 @@
+//import { ProductCart } from "../../types/index";
 import { Card } from "../card/card";
 import Component from "../component";
 import { Person, MAIL_REGEXP } from "../person/person";
-import { getStoreHash } from "../utils/loader";
+import { getStorageItem } from "../utils/loader";
 import "./purchase.css";
 
 export class PurchaseModal extends Component {
@@ -73,18 +74,20 @@ export class PurchaseModal extends Component {
 
     if (isPersonName && isPersonPhoneNumber && isPersonDeliveryAddress && isPersonMail && isCardNumber && isCardValidThru && isCardCVV) {
       setTimeout(() => {
-        //clearCart();
-        //updateLocalStorage();
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        document.querySelector('.cart-summa')!.textContent = '0.00';
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        document.querySelector('.cart-amount')!.textContent = '0';
+        localStorage.setItem('cart', JSON.stringify({amount: 0, summa: 0, goods: []}));
         this.elem.classList.remove('open');
         document.body.classList.remove('scroll-lock');
-        window.location.hash = `#/${getStoreHash()}`;
+        window.location.hash = `#/${getStorageItem('hash')}`;
         location.reload();
-      }, 4000);
+      }, 5000);
       this.confirmMessage.elem.textContent = "Confirm sucssesfully!";
     } else {
       this.confirmMessage.elem.textContent = "";
     }
   }
 
-    
 }

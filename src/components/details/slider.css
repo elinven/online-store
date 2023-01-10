@@ -1,5 +1,6 @@
 .good-slider {
   width: 350px;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
 }
@@ -10,17 +11,21 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  gap: 5px;
 }
 
 .good-image {
   width: 73px;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
-.image-photo {
+.active-photo {
   width: 258px;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 

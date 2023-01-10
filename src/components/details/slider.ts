@@ -2,7 +2,7 @@ import { Product } from "../../types/index";
 import Component from "../component";
 import "./slider.css";
 
-export class GoodSlider extends Component {
+class GoodSlider extends Component {
   private imageContainer;
   public goodImage!: Component;
   private activeImageContainer;
