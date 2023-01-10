@@ -16,7 +16,7 @@ export class Filters extends Component {
     this.filterOption1 = new Filter(this.elem, 'range', 'Price');
     this.filterOption2 = new Filter(this.elem, 'range', 'Stock');
     this.filterOption3 = new Filter(this.elem, 'checkbox', 'Brand');
-    this.filterOption4 = new Filter(this.elem, 'checkbox', 'Category');
+    this.filterOption4 = new Filter(this.elem, 'checkbox', 'Categories');
    
   }
 }

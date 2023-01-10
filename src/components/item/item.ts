@@ -22,7 +22,7 @@ export class Item extends Component {
   private itemButtonDetails: Component | undefined;
 
   constructor(parentNode: HTMLElement, itemName: string, itemBrand: string,
-     itemCategory: string,  itemImages:string, itemPrice:string, itemDiscount:string, itemRating:string, itemStock: string) {
+     itemCategory: string,  itemImages:string, itemPrice:string, itemDiscount:string, itemRating:string, itemStock: string, id: number) {
     super(parentNode, "div", ["goods-item"]);
 
     this.itemUpper = new Component(this.elem, 'div', ['goods-item-upper-section'])
@@ -46,6 +46,10 @@ export class Item extends Component {
     this.itemButtons = new Component(this.itemLower.elem, 'div', ['goods-item-buttons'])
     this.itemButtonDetails = new Component(this.itemButtons.elem, 'button', ['goods-item-button', 'goods-item-details'], 'Details')
     this.itemButtonAdd = new Component(this.itemButtons.elem, 'button', ['goods-item-button', 'goods-item-add'], '+')
+
+    this.itemButtonDetails.elem.addEventListener("click", () => {
+      window.location.hash = `#/product-details/${id}`;
+    });
 
   }
 }
