@@ -1,10 +1,11 @@
+import { stat } from "fs";
 import Component from "../../components/component";
 import { Filters } from "../../components/filters/filters"
 import { Items } from "../../components/item/items"
 import { Search } from "../../components/search&sort/search";
 import { Sort } from "../../components/search&sort/sort";
 import { Model } from "../../model/Model";
-import { IBaseState } from "../../types/index";
+import { IBaseState, Product } from "../../types/index";
 import "./store.css";
 
 export class StorePage extends Component {
@@ -28,11 +29,23 @@ export class StorePage extends Component {
       });
     };
 
+    //sort
+    const selectSort = (event: Event) => {
+      const target = event.target as HTMLInputElement;
+      const state:IBaseState = model.getState();
+      model.setState({
+        ...state,
+        sortOrder: target.value,
+      });
+      
+      console.log(model.getState());
+    };
+
     this.filterWrapper = new Filters(this.elem);
     this.goodsWrapper = new Component(this.elem, 'div', ['goods-wrapper']);
     this.searchAndSortWrapper = new Component(this.goodsWrapper.elem, 'div', ['sort-and-search-wrapper']);
     this.search = new Search(this.searchAndSortWrapper.elem, onKeyDown);
-    this.sort = new Sort(this.searchAndSortWrapper.elem);
+    this.sort = new Sort(this.searchAndSortWrapper.elem, selectSort);
 
     const state = model.getState();
     this.items = new Items(this.goodsWrapper.elem, state.products);
@@ -44,6 +57,7 @@ export class StorePage extends Component {
         }
         const query = state.searchQuery.toLowerCase();
 
+        //search
         if(item.title.toLowerCase().match(query)){
           return item.title.toLowerCase().match(query)
         } else if(item.brand.toLowerCase().match(query)){
@@ -58,6 +72,30 @@ export class StorePage extends Component {
           return item.stock.toString().toLowerCase().match(query)
         }
       });
+
+      //sort
+      const sortingOrder = state.sortOrder;
+      if(sortingOrder ==='alph_asc'){
+        products.sort((a:Product, b:Product) => {
+          if(a.title < b.title) { return -1; }
+          else { return 1; }
+        })
+      } else if (sortingOrder ==='alph_desc'){
+        products.sort((a:Product, b:Product) => {
+          if(a.title < b.title) { return 1; }
+          else { return -1; }
+        })
+      } else if (sortingOrder ==='price_asc'){
+        products.sort((a:Product, b:Product) => {
+          if(a.price < b.price) { return -1; }
+          else { return 1; }
+        })
+      } else if (sortingOrder ==='price_desc'){
+        products.sort((a:Product, b:Product) => {
+          if(a.price < b.price) { return 1; }
+          else { return -1; }
+        })
+      }
 
       this.items.delete();
       this.items = new Items(this.goodsWrapper.elem, products);

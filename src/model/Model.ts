@@ -7,6 +7,7 @@ export class Model {
   constructor() {
     this.state = {
       searchQuery: '',
+      sortOrder: '',
       products: [],
     };
 
