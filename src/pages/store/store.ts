@@ -15,6 +15,7 @@ export class StorePage extends Component {
   private searchAndSortWrapper;
   private search;
   private sort;
+  private foundWrapper?: Component;
 
   constructor(parentNode: HTMLElement, model: Model) {
     super(parentNode, "div", ["store-page"]);
@@ -39,15 +40,14 @@ export class StorePage extends Component {
       });
     };
 
-    //filters in filters
+    const state = model.getState();
 
     this.filterWrapper = new Filters(this.elem, model);
     this.goodsWrapper = new Component(this.elem, 'div', ['goods-wrapper']);
     this.searchAndSortWrapper = new Component(this.goodsWrapper.elem, 'div', ['sort-and-search-wrapper']);
     this.search = new Search(this.searchAndSortWrapper.elem, onKeyDown);
     this.sort = new Sort(this.searchAndSortWrapper.elem, selectSort);
-
-    const state = model.getState();
+    this.foundWrapper = new Component(this.searchAndSortWrapper.elem, 'div', [], `Found: ${state.products.length.toString()} items`)
     this.items = new Items(this.goodsWrapper.elem, state.products);
 
     model.subscribe((state) => {
@@ -116,30 +116,13 @@ export class StorePage extends Component {
         })
       }
 
+      const itemsFound = productsAfterFilter.length.toString();
+
       this.items.delete();
+      this.foundWrapper?.delete()
       this.items = new Items(this.goodsWrapper.elem, productsAfterFilter);
+      this.foundWrapper = new Component(this.searchAndSortWrapper.elem, 'div', [], `Found: ${itemsFound} items`)
     });
 
-/*     model.subscribe((state) => {
-      const query = state.searchQuery.toLowerCase();
-      console.log(query);
-      const products = state.products.filter((item) => {
-        if (!query) {
-          return true;
-        }
-        Object.entries(item).forEach(([key, value]) => {
-          if(value.toString().toLowerCase().match(query)){
-            return value.toString().toLowerCase().match(query)
-          }
-        })
-
-        const result = item[el keyof typeof item].toString().toLowerCase().match(query);
-         return item.title.toString().toLowerCase().match(query);
-
-      });
-      console.log(products);
-      this.items.delete();
-      this.items = new Items(this.goodsWrapper.elem, products);
-    }); */
   }
 }

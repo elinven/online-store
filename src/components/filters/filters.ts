@@ -24,7 +24,6 @@ export class Filters extends Component {
       return arr;
     }
     
-
     const filterCheckbox = (event: Event) => {
       const target = event.target as HTMLInputElement;
       const state:IBaseState = model.getState();
@@ -36,7 +35,6 @@ export class Filters extends Component {
       model.setState({
         ...state,
       });
-      console.log(model.getState());
     };
 
     this.filterOption1 = new Filter(this.elem, 'range', 'Price', filterCheckbox);
