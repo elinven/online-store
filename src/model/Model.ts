@@ -8,6 +8,7 @@ export class Model {
     this.state = {
       searchQuery: '',
       sortOrder: '',
+      currentFilters: [],
       products: [],
     };
 

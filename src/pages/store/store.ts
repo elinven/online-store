@@ -37,11 +37,11 @@ export class StorePage extends Component {
         ...state,
         sortOrder: target.value,
       });
-      
-      console.log(model.getState());
     };
 
-    this.filterWrapper = new Filters(this.elem);
+    //filters in filters
+
+    this.filterWrapper = new Filters(this.elem, model);
     this.goodsWrapper = new Component(this.elem, 'div', ['goods-wrapper']);
     this.searchAndSortWrapper = new Component(this.goodsWrapper.elem, 'div', ['sort-and-search-wrapper']);
     this.search = new Search(this.searchAndSortWrapper.elem, onKeyDown);
@@ -51,13 +51,12 @@ export class StorePage extends Component {
     this.items = new Items(this.goodsWrapper.elem, state.products);
 
     model.subscribe((state) => {
+      //search
       const products = state.products.filter((item) => {
         if (!state.searchQuery) {
           return true;
         }
         const query = state.searchQuery.toLowerCase();
-
-        //search
         if(item.title.toLowerCase().match(query)){
           return item.title.toLowerCase().match(query)
         } else if(item.brand.toLowerCase().match(query)){
@@ -73,32 +72,52 @@ export class StorePage extends Component {
         }
       });
 
+      //filters
+      const filteredProducts = state.currentFilters;
+
+      const productsAfterFilter = products.filter((item) => {
+        if (filteredProducts.length === 0) {
+          return true;
+        } else{
+          let filter = false;
+          filteredProducts.forEach((filteredProduct) => {
+            if(item.brand === filteredProduct || item.category === filteredProduct){
+              filter = true;
+            }
+          })
+          return filter;
+        }
+      })
+
+      //filteredProducts = [{id: 1, brand: 'apple'}]
+      //item = 'apple'
+
       //sort
       const sortingOrder = state.sortOrder;
       if(sortingOrder ==='alph_asc'){
-        products.sort((a:Product, b:Product) => {
+        productsAfterFilter.sort((a:Product, b:Product) => {
           if(a.title < b.title) { return -1; }
           else { return 1; }
         })
       } else if (sortingOrder ==='alph_desc'){
-        products.sort((a:Product, b:Product) => {
+        productsAfterFilter.sort((a:Product, b:Product) => {
           if(a.title < b.title) { return 1; }
           else { return -1; }
         })
       } else if (sortingOrder ==='price_asc'){
-        products.sort((a:Product, b:Product) => {
+        productsAfterFilter.sort((a:Product, b:Product) => {
           if(a.price < b.price) { return -1; }
           else { return 1; }
         })
       } else if (sortingOrder ==='price_desc'){
-        products.sort((a:Product, b:Product) => {
+        productsAfterFilter.sort((a:Product, b:Product) => {
           if(a.price < b.price) { return 1; }
           else { return -1; }
         })
       }
 
       this.items.delete();
-      this.items = new Items(this.goodsWrapper.elem, products);
+      this.items = new Items(this.goodsWrapper.elem, productsAfterFilter);
     });
 
 /*     model.subscribe((state) => {

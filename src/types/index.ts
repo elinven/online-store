@@ -33,6 +33,7 @@ export enum Methods {
 export interface IBaseState {
   searchQuery: string;
   sortOrder: string;
+  currentFilters: string[];
   products: Product[];
 }
 
