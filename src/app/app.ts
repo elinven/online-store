@@ -1,7 +1,7 @@
 import Component from "../components/component";
 import { Router } from "../router/index";
-import { Header } from "../components/header/index";
-import { Footer } from "../components/footer/index";
+import { Header } from "../components/header/header";
+import { Footer } from "../components/footer/footer";
 import { Model } from "../model/Model";
 import cardsInfo from "../components/goods";
 

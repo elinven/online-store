@@ -20,7 +20,7 @@
   column-gap: 20px;
 }
 
-.github {
+.github-logo {
   width: 50px;
   height: 50px;
   background-image: url("../../assets/svg/github.svg");
@@ -29,7 +29,7 @@
   transition: 0.3s ease-in-out;
 }
 
-.github:hover {
+.github-logo:hover {
   transition: 0.3s all;
   transform: scale(1.05);
   cursor: pointer;

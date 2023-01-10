@@ -1,0 +1,21 @@
+.good-nav {
+  width: 100%;
+  margin: 20px auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.good-link {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.good-link,
+.good-text {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+}

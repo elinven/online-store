@@ -1,3 +1,3 @@
-export function getStoreHash() {
-  return localStorage.getItem('storeHash') ? localStorage.getItem('storeHash') : "";
+export function getStorageItem(item: string) {
+  return localStorage.getItem(item) ? localStorage.getItem(item) : "";
 }

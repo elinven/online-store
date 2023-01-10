@@ -1,4 +1,4 @@
-import { IBaseState, Product, TSubscriber } from "../types/index";
+import { IBaseState, TSubscriber } from "../types/index";
 
 export class Model {
   private state: IBaseState;

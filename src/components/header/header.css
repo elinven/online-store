@@ -44,7 +44,7 @@
   cursor: pointer;
 }
 
-.cart-content {
+.cart-amount {
   width: 30px;
   height: 30px;
   display: flex;

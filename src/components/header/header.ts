@@ -1,6 +1,8 @@
+import { ProductCart } from "../../types/index";
 import Component from "../component";
 import Logo from "../logo/index";
-import "./style.css";
+import { getStorageItem } from "../utils/loader";
+import "./header.css";
 
 export class Header extends Component {
   private appLogo: Logo;
@@ -8,21 +10,20 @@ export class Header extends Component {
   private cartText;
   public cartSumma;
   private cartTotal;
-  public cartContent;
+  public cartAmount;
   
   constructor(parentNode: HTMLElement) {
     super(parentNode, "div", ["header"]);
+
+    let productCart: ProductCart;
+    getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: []} : productCart = JSON.parse(<string>getStorageItem('cart'));
     
     this.appLogo = new Logo(this.elem);
     this.cartCost = new Component(this.elem, "div", ["cart-cost"]);
     this.cartText = new Component(this.cartCost.elem, "p", ["cart-text"], "Cart total:");
-    this.cartSumma = new Component(this.cartCost.elem, "span", ["cart-summa"], "$0.00");
+    this.cartSumma = new Component(this.cartCost.elem, "span", ["cart-summa"], `$${productCart.summa.toFixed(2)}`);
     this.cartTotal = new Component(this.elem, "div", ["cart-total"]);
-    this.cartContent = new Component(this.cartTotal.elem, "div", ["cart-content"], "0");
-
-    //this.cartTotal.elem.style.backgroundImage = `url("../../assets/svg/shopping-bag.svg")`;
-
-    //this.cartTotal.elem.addEventListener("click", () => this.onClickCart());
+    this.cartAmount = new Component(this.cartTotal.elem, "div", ["cart-amount"], `${productCart.amount}`);
 
     this.appLogo.elem.addEventListener("click", () => {
       window.location.hash = "#/";
@@ -32,12 +33,9 @@ export class Header extends Component {
       window.location.hash = "#/cart";
     });
 
-    this.cartContent.elem.addEventListener("click", () => {
+    this.cartAmount.elem.addEventListener("click", () => {
       window.location.hash = "#/cart";
     });
   }
 
-  //onClickCart: () => void = () => {
-    //
-  //}
 }

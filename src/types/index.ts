@@ -20,6 +20,15 @@ export interface AppRoute {
   component: (par: string, model: Model, options?: { id: number }) => void;
 }
 
+export interface ProductCart {
+  amount: number;
+  summa: number;
+  goods: {
+    product: Product;
+    amount: number;
+  }[];
+}
+
 export enum StatusCodes {
   Unauthorized = 401,
   NotFound = 404
