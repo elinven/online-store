@@ -16,6 +16,7 @@ export class StorePage extends Component {
   private search;
   private sort;
   private foundWrapper?: Component;
+  private resetFilters?: Component;
 
   constructor(parentNode: HTMLElement, model: Model) {
     super(parentNode, "div", ["store-page"]);
@@ -40,8 +41,22 @@ export class StorePage extends Component {
       });
     };
 
-    const state = model.getState();
+    //filter function in filters.ts
 
+    //reset
+    const reset = (event: Event) => {
+      const target = event.target as HTMLInputElement;
+      const state:IBaseState = model.getState();
+      model.setState({
+        ...state,
+        currentFilters: [],
+      })
+      this.filterWrapper.delete()
+      this.filterWrapper = new Filters(this.elem, model);
+      this.filterWrapper.resetFilters.elem.addEventListener('click', reset)
+    };
+
+    const state = model.getState();
     this.filterWrapper = new Filters(this.elem, model);
     this.goodsWrapper = new Component(this.elem, 'div', ['goods-wrapper']);
     this.searchAndSortWrapper = new Component(this.goodsWrapper.elem, 'div', ['sort-and-search-wrapper']);
@@ -49,6 +64,7 @@ export class StorePage extends Component {
     this.sort = new Sort(this.searchAndSortWrapper.elem, selectSort);
     this.foundWrapper = new Component(this.searchAndSortWrapper.elem, 'div', [], `Found: ${state.products.length.toString()} items`)
     this.items = new Items(this.goodsWrapper.elem, state.products);
+    this.filterWrapper.resetFilters.elem.addEventListener('click', reset)
 
     model.subscribe((state) => {
       //search

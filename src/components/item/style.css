@@ -7,6 +7,7 @@
   max-width: 1362px;
   min-width: 500px;
   padding: 10px;
+  order: 2;
 }
 
 .goods-showcase{

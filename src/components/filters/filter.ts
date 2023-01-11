@@ -7,7 +7,7 @@ import {Product} from "../../types/index"
 export class Filter extends Component {
 
   private filterName;
-  private filterInput: Component | undefined;
+  public filterInput: Component | undefined;
   private filterLabel: Component | undefined;
   private filterCheckboxWrapper: Component | undefined;
 

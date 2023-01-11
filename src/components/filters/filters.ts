@@ -7,10 +7,12 @@ import "./style.css";
 
 export class Filters extends Component {
 
-  private filterOption1;
-  private filterOption2;
-  private filterOption3;
-  private filterOption4;
+  /* private resetFilters; */
+  public filterOption1;
+  public filterOption2;
+  public filterOption3;
+  public filterOption4;
+  public resetFilters;
   
 
   constructor(parentNode: HTMLElement, model: Model) {
@@ -37,6 +39,7 @@ export class Filters extends Component {
       });
     };
 
+    this.resetFilters = new Component(this.elem, 'button', ['reset-filter-button'], 'Reset Filters')
     this.filterOption1 = new Filter(this.elem, 'range', 'Price', filterCheckbox);
     this.filterOption2 = new Filter(this.elem, 'range', 'Stock', filterCheckbox);
     this.filterOption3 = new Filter(this.elem, 'checkbox', 'Brand', filterCheckbox);
