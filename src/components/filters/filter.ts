@@ -11,7 +11,7 @@ export class Filter extends Component {
   private filterLabel: Component | undefined;
   private filterCheckboxWrapper: Component | undefined;
 
-  constructor(parentNode: HTMLElement, filterType: string, filterName: string) {
+  constructor(parentNode: HTMLElement, filterType: string, filterName: string, filterCheckbox: (event: Event) => void) {
     super(parentNode, "div", ["filter-wrapper-option"]);
 
     this.filterName = new Component(this.elem, 'h2', []);
@@ -49,10 +49,12 @@ export class Filter extends Component {
         allCategories.forEach((el) => {
           this.filterCheckboxWrapper = new Component(this.elem, 'div', ['category-option']);
           this.filterLabel = new Component(this.filterCheckboxWrapper.elem, 'label', ['category-label'], el)
-          this.filterInput = new Component(this.filterCheckboxWrapper.elem, 'input', []);
+          this.filterInput = new Component(this.filterLabel.elem, 'input', []);
           this.filterLabel.elem.setAttribute ('for', el)
           this.filterInput.elem.setAttribute('type', filterType);
           this.filterInput.elem.setAttribute('id', el);
+
+          this.filterInput.elem.addEventListener('change', filterCheckbox);
         })
       });
     }

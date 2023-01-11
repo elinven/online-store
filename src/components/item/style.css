@@ -5,7 +5,9 @@
   border: 1px solid var(--border-color);
   background: rgba(0, 0, 0, 0.2);
   max-width: 1362px;
+  min-width: 500px;
   padding: 10px;
+  order: 2;
 }
 
 .goods-showcase{
