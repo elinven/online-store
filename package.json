@@ -61,6 +61,7 @@
     "mime-types": "^2.1.35",
     "neo-async": "^2.6.2",
     "node-releases": "^2.0.8",
+    "nouislider": "^15.6.1",
     "picocolors": "^1.0.0",
     "punycode": "^2.1.1",
     "randombytes": "^2.1.0",

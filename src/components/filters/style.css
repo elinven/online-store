@@ -57,3 +57,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.test-filter{
+  width: 100%;
+  height: 70px;
+  margin: 0 auto 30px;
+}

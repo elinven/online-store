@@ -3,7 +3,6 @@ import "./style.css";
 import cardsInfo from "../goods"
 import {Product} from "../../types/index"
 
-
 export class Filter extends Component {
 
   private filterName;
