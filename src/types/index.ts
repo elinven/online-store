@@ -42,8 +42,13 @@ export enum Methods {
 export interface IBaseState {
   searchQuery: string;
   sortOrder: string;
+  minPrice: number;
+  maxPrice: number;
+  minStock: number;
+  maxStock: number;
   currentFilters: string[];
   products: Product[];
+  filteredProducts: Product[];
 }
 
 export type TSubscriber = (state: IBaseState) => void; 
