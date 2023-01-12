@@ -11,7 +11,7 @@ export class CartPage extends Component {
   constructor(parentNode: HTMLElement) {
     super(parentNode, "div", ["cart-page"]);
 
-    this.cartContent = new Component(this.elem, "h1", ["cart-components"], "CART IS EMPTY");
+    this.cartContent = new Component(this.elem, "h1", ["cart-components"], "Click on me to view the modal window");
     this.cartPurchase = new PurchaseModal(this.elem);
 
     this.cartContent.elem.onclick = () => this.openPurchaseModalWindow();
