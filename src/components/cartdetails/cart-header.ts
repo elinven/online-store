@@ -40,8 +40,8 @@ export class CartHeader extends Component {
       if (goodCart.page > 1) {
         goodCart.page --;
         this.cartPageNumber.elem.textContent = `${goodCart.page}`;
-        window.location.hash = `#/cart?page=${goodCart.page}`;
         localStorage.setItem('cart', JSON.stringify(goodCart));
+        window.location.hash = `#/cart?page=${goodCart.page}`;
       } 
     });
 
@@ -49,16 +49,26 @@ export class CartHeader extends Component {
       if (goodCart.page < Math.ceil(goodCart.goods.length/goodCart.limit)) {
         goodCart.page ++;
         this.cartPageNumber.elem.textContent = `${goodCart.page}`;
-        window.location.hash = `#/cart?page=${goodCart.page}`;
         localStorage.setItem('cart', JSON.stringify(goodCart));
+        window.location.hash = `#/cart?page=${goodCart.page}`;
       } 
     });
 
-    this.cartLimitNumber.elem.addEventListener("onchange", () => {
-      if (goodCart.page === Math.ceil(goodCart.goods.length/goodCart.limit) && goodCart.goods.length <= Number(this.cartLimitNumber.elem.value)) {
-        goodCart.limit = Number(this.cartLimitNumber.elem.value);
+    this.cartLimitNumber.elem.addEventListener("input", () => {
+      if (goodCart.page === Math.ceil(goodCart.goods.length/goodCart.limit) && goodCart.goods.length <= Number(this.cartLimitNumber.elem.value) * (goodCart.page - 1)) {
         goodCart.page --;
       }
+      if (goodCart.page === Math.ceil(goodCart.goods.length/goodCart.limit) && goodCart.goods.length > Number(this.cartLimitNumber.elem.value) * (goodCart.page - 1)) {
+        goodCart.page ++;
+      }
+      if (goodCart.limit > Number(this.cartLimitNumber.elem.value) && goodCart.page > 1) {
+        goodCart.page --;
+      }
+      if (goodCart.limit <= Number(this.cartLimitNumber.elem.value) && goodCart.page < Math.ceil(goodCart.goods.length/Number(this.cartLimitNumber.elem.value))) {
+        goodCart.page ++;
+      }
+
+      goodCart.limit = Number(this.cartLimitNumber.elem.value);
       localStorage.setItem('cart', JSON.stringify(goodCart));
       window.location.hash = `#/cart?page=${goodCart.page}`;
     });
