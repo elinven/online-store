@@ -50,6 +50,10 @@ export class StorePage extends Component {
       model.setState({
         ...state,
         currentFilters: [],
+        minPrice: 12,
+        maxPrice: 1749,
+        minStock: 2,
+        maxStock: 150
       })
       this.filterWrapper.delete()
       this.filterWrapper = new Filters(this.elem, model);

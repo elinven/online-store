@@ -61,11 +61,31 @@ export class Filter extends Component {
       return minMax;
     }
 
+    function setSliderValues(values: string[]){
+      const state:IBaseState = model.getState();
+      console.log(values);
+      if(filterName === 'Stock'){
+        console.log('stock worked');
+        model.setState({
+          ...state,
+          minStock: +values[0],
+          maxStock: +values[1]
+        })
+      } else {
+        console.log('price worked');
+        model.setState({
+          ...state,
+          minPrice: +values[0],
+          maxPrice: +values[1]
+        })
+      }
+      console.log(state);
+    }
+
     if (filterType === 'range') {
       const minMax = updateSlider();
       this.filterInput = new Component(this.elem, 'div', ['test-filter']);
-      const slider = 
-      nouislider.create(this.filterInput.elem, {
+      const slider = nouislider.create(this.filterInput.elem, {
         start: [minMax[0], minMax[minMax.length - 1]],
         step: 1,
         connect: true,
@@ -78,28 +98,26 @@ export class Filter extends Component {
           true
         ],
       });
-      slider.on('change', ()=>{
-        const state:IBaseState = model.getState();
-        updateSlider()
-        const values = slider.get(true)
-        console.log(values);
-        const stringValues = values.toString();
-        const splitValues = stringValues.split(',')
-        if(filterName === 'Stock'){
-          model.setState({
-            ...state,
-            minStock: +splitValues[0],
-            maxStock: +splitValues[1]
-          })
-        } else {
-          model.setState({
-            ...state,
-            minPrice: +splitValues[0],
-            maxPrice: +splitValues[1]
-          })
-        }
-        console.log(state);
-
+      const values = slider.get()
+      const stringValues = values.toString();
+      const splitValues = stringValues.split(',')
+      if(filterName === 'Stock'){
+        console.log('stock worked');
+        model.setState({
+          ...state,
+          minStock: +splitValues[0],
+          maxStock: +splitValues[1]
+        })
+      } else {
+        console.log('price worked');
+        model.setState({
+          ...state,
+          minPrice: +splitValues[0],
+          maxPrice: +splitValues[1]
+        })
+      }
+      slider.on('set', ()=>{
+        setSliderValues(splitValues)
       })
     }
 
@@ -156,9 +174,11 @@ export class Filter extends Component {
 
 buildCheckboxes()
 
-model.subscribe((state) => {
-  buildCheckboxes()
-})
+  model.subscribe((state) => {
+    updateCheckboxes()
+    updateSlider()
+  })
+
 
   }
 }

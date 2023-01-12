@@ -53,6 +53,10 @@ export class Filters extends Component {
     this.filterOption3 = new Filter(this.elem, 'checkbox', 'Brand', filterCheckbox, model);
     this.filterOption4 = new Filter(this.elem, 'checkbox', 'Categories', filterCheckbox, model);
 
+    this.filterOption1.elem.addEventListener('change', ()=>{
+      console.log('it changed');
+    })
+
 
 /*     model.subscribe((state) => {
       this.filterOption3.delete()
