@@ -5,6 +5,7 @@ import { Filter } from "./filter";
 import "./style.css";
 
 
+
 export class Filters extends Component {
 
 
@@ -13,6 +14,7 @@ export class Filters extends Component {
   private filterOption3;
   private filterOption4;
   public resetFilters;
+  private copyButton: Component;
   
 
   constructor(parentNode: HTMLElement, model: Model) {
@@ -38,11 +40,34 @@ export class Filters extends Component {
         ...state,
       });
     };
-
     this.resetFilters = new Component(this.elem, 'button', ['reset-filter-button'], 'Reset Filters')
-    this.filterOption1 = new Filter(this.elem, 'range', 'Price', filterCheckbox);
-    this.filterOption2 = new Filter(this.elem, 'range', 'Stock', filterCheckbox);
-    this.filterOption3 = new Filter(this.elem, 'checkbox', 'Brand', filterCheckbox);
-    this.filterOption4 = new Filter(this.elem, 'checkbox', 'Categories', filterCheckbox);
+    this.copyButton = new Component(this.elem, 'button', [], 'Copy link')
+
+    this.copyButton.elem.addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href);
+      this.copyButton.elem.textContent = 'Link copied!'
+    })
+
+    this.filterOption1 = new Filter(this.elem, 'range', 'Price', filterCheckbox, model);
+    this.filterOption2 = new Filter(this.elem, 'range', 'Stock', filterCheckbox, model);
+    this.filterOption3 = new Filter(this.elem, 'checkbox', 'Brand', filterCheckbox, model);
+    this.filterOption4 = new Filter(this.elem, 'checkbox', 'Categories', filterCheckbox, model);
+
+    this.filterOption1.elem.addEventListener('change', ()=>{
+      console.log('it changed');
+    })
+
+
+/*     model.subscribe((state) => {
+      this.filterOption3.delete()
+      this.filterOption4.delete()
+      this.filterOption3 = new Filter(this.elem, 'checkbox', 'Brand', filterCheckbox, model);
+      this.filterOption4 = new Filter(this.elem, 'checkbox', 'Categories', filterCheckbox, model);
+    }) */
+    
+     
+
   }
 }
+
+

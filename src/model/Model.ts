@@ -8,9 +8,16 @@ export class Model {
     this.state = {
       searchQuery: '',
       sortOrder: '',
+      minPrice: 12,
+      maxPrice: 1749,
+      minStock: 2,
+      maxStock: 150,
       currentFilters: [],
       products: [],
+      filteredProducts: []
     };
+
+    console.log('model worked');
 
     this.subscribers = [];
   }

@@ -28,6 +28,7 @@ export class CartPage extends Component {
   constructor(parentNode: HTMLElement) {
     super(parentNode, "div", ["cart-page"]);
 
+
     let productCart: ProductCart;
     getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 1} : productCart = JSON.parse(<string>getStorageItem('cart'));
 
