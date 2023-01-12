@@ -4,6 +4,7 @@ import "./style.css";
 export class Sort extends Component {
 
   private sortField: Component | undefined;
+  private noSort: Component | undefined;
   private sortALPH_ASC: Component | undefined;
   private sortALPH_DESC: Component | undefined;
   private sortPRICE_ASC: Component | undefined;
@@ -13,6 +14,7 @@ export class Sort extends Component {
     super(parentNode, "div", ["sort-wrapper"]);
 
     this.sortField = new Component(this.elem, 'select', ['sort-select'], 'Sort Options');
+    this.noSort = new Component(this.sortField.elem, 'option', ['goods-sort'], 'No sort');
     this.sortALPH_ASC = new Component(this.sortField.elem, 'option', ['goods-sort'], 'Alphabet ASC');
     this.sortALPH_DESC = new Component(this.sortField.elem, 'option', ['goods-sort'], 'Alphabet DESC');
     this.sortPRICE_ASC = new Component(this.sortField.elem, 'option', ['goods-sort'], 'Price ASC');

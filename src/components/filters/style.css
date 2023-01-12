@@ -14,7 +14,8 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  min-width: 220px;
   justify-content: flex-start;
   border: 1px solid var(--border-color);
   gap: 8px;
@@ -24,13 +25,15 @@
 
 .filter-wrapper-option{
   max-height: 250px;
+  overflow-x: hidden;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
   margin-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px;
+  padding-right: 30px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -60,6 +63,5 @@
 
 .test-filter{
   width: 100%;
-  height: 70px;
-  margin: 0 auto 30px;
+  margin-top: 40px;
 }

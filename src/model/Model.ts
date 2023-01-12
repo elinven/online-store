@@ -8,8 +8,13 @@ export class Model {
     this.state = {
       searchQuery: '',
       sortOrder: '',
+      minPrice: 0,
+      maxPrice: 0,
+      minStock: 0,
+      maxStock: 0,
       currentFilters: [],
       products: [],
+      filteredProducts: []
     };
 
     this.subscribers = [];
