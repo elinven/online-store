@@ -51,7 +51,7 @@ export class PurchaseModal extends Component {
       this.person.personMailError.elem.textContent = "";
     }
 
-    const isCardNumber = /\d{4} \d{4} \d{4} \d{4}/.test(this.card.cardNumber.elem.value) && this.card.cardNumber.elem.value.trim() !== "";
+    const isCardNumber = /[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}/.test(this.card.cardNumber.elem.value) && this.card.cardNumber.elem.value.trim() !== "";
     if (!isCardNumber) {
       this.card.cardNumberError.elem.textContent = "Card number - error";
     } else {
@@ -78,7 +78,7 @@ export class PurchaseModal extends Component {
         document.querySelector('.cart-summa')!.textContent = '0.00';
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         document.querySelector('.cart-amount')!.textContent = '0';
-        localStorage.setItem('cart', JSON.stringify({amount: 0, summa: 0, goods: []}));
+        localStorage.setItem('cart', JSON.stringify({amount: 0, summa: 0, goods: [], codes: [], limit: 3, page: 1}));
         this.elem.classList.remove('open');
         document.body.classList.remove('scroll-lock');
         window.location.hash = `#/${getStorageItem('hash')}`;

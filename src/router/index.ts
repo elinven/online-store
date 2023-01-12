@@ -31,13 +31,7 @@ export class Router {
           this.rootElement.append(this.storePage.elem);
         },
       },
-      /*{
-        name: "/404",
-        component: () => {
-          this.errorPage = new Page404(this.rootElement);
-          this.rootElement.append(this.errorPage.elem);
-        },
-      },*/
+
       {
         name: "/product-details/:id",
         component: (params, model, options) => {
@@ -47,14 +41,14 @@ export class Router {
       },
       {
         name: "/cart",
-        component: (params, model) => {
+        //component: (params, model) => {
+        component: () => {
           this.cartPage = new CartPage(this.rootElement);
           this.rootElement.append(this.cartPage.elem);
         },
       },
     ];
 
-    //this.routesArr = [...this.routes];
     this.currentRoute = "/";
 
     this.defaultRoute = {
@@ -65,12 +59,6 @@ export class Router {
       },
     };
 
-    /*this.defaultRoute = {
-      name: "/",
-      component: () => {
-        this.rootElement.append(this.storePage.elem);
-      },
-    }*/
   }
 
   updateRouter(): void {

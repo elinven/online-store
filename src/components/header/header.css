@@ -50,7 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px red;
+  border: 2px solid red;
   border-radius: 15px;
   background-color: white;
   font-family: 'Montserrat', sans-serif;

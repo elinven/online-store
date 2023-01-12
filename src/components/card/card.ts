@@ -36,14 +36,14 @@ export class Card extends Component {
     this.cardData = new Component(this.cardContent.elem, "div", ["card-data"]);
     this.cardLogo = new Component(this.cardData.elem, "div", ["card-logo"]);
     this.cardLogoImg = new Component(this.cardLogo.elem, "img", ["card-img"]);
-    this.cardNumber = new InputComponent(this.cardData.elem, "text", ["app-input", "card-number"], "Card number", "[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}");
+    this.cardNumber = new InputComponent(this.cardData.elem, "text", ["app-input", "card-number"], "Card number");
     this.cardValidData = new Component(this.cardContent.elem, "div", ["valid-data"]);
     this.cardValid = new Component(this.cardValidData.elem, "div", ["card-valid"]);
     this.cardValidText = new Component(this.cardValid.elem, "div", ["valid-text"], "VALID");
-    this.cardValidThru = new InputComponent(this.cardValid.elem, "text", ["app-input", "card-data"], "Valid Thru", "[0-1]{1}[1-2]{1}/[0-9]{2}");
+    this.cardValidThru = new InputComponent(this.cardValid.elem, "text", ["app-input", "card-data"], "Valid Thru");
     this.cardCVV = new Component(this.cardValidData.elem, "div", ["card-cvv"]);
     this.cardCVVText = new Component(this.cardCVV.elem, "div", ["cvv-text"], "CVV");
-    this.cardCVVCode = new InputComponent(this.cardCVV.elem, "text", ["app-input", "card-code"], "Code", "^[0-9]{3}$");
+    this.cardCVVCode = new InputComponent(this.cardCVV.elem, "text", ["app-input", "card-code"], "Code");
     this.cardNumberError = new Component(this.elem, "div", ["card-error"], "");
     this.cardValidThruError = new Component(this.elem, "div", ["valid-error"], "");
     this.cardCVVError = new Component(this.elem, "div", ["cvv-error"], "");
@@ -59,7 +59,7 @@ export class Card extends Component {
   }
 
   onCardNumberChange = () => {
-    if (!/\d{4} \d{4} \d{4} \d{4}/.test(this.cardNumber.elem.value)) {
+    if (!/[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}/.test(this.cardNumber.elem.value)) {
       this.cardNumberError.elem.textContent = "Card number - error";
     } else {
       this.cardNumberError.elem.textContent = "";

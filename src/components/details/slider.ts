@@ -18,7 +18,7 @@ class GoodSlider extends Component {
     this.activeGoodImage.elem.setAttribute("src", goodData.images[0]);
     this.activeGoodImage.elem.setAttribute("alt", "Slide");
 
-    goodData.images.forEach(ph => {
+    [...new Set(goodData.images)].forEach(ph => {
       this.goodImage = new Component(this.imageContainer.elem, "img", ["good-image"]);
       this.goodImage.elem.setAttribute("src", ph);
       this.goodImage.elem.setAttribute("alt", "Slide");
