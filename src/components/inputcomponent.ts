@@ -5,7 +5,7 @@ class InputComponent {
               type: string,
               styles: string[] = [],
               placeholder: string,
-              pattern: string)
+              pattern?: string)
   {
     this.elem = document.createElement('input');
     this.elem.setAttribute("type", type);
@@ -18,9 +18,9 @@ class InputComponent {
     }
 
     //this.elem.addEventListener("input", (e) => this.getInputValue(e));
-    //if (pattern) {
+    if (pattern) {
       this.elem.setAttribute("pattern", pattern);
-    //}
+    }
   }
 
   delete(): void {

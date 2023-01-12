@@ -20,6 +20,12 @@ export interface AppRoute {
   component: (par: string, model: Model, options?: { id: number }) => void;
 }
 
+export interface PromoCode {
+  readonly code: string;
+  readonly name: string;
+  readonly value: number;
+}
+
 export interface ProductCart {
   amount: number;
   summa: number;
@@ -27,7 +33,24 @@ export interface ProductCart {
     product: Product;
     amount: number;
   }[];
+  promo: boolean;
+  codes: PromoCode[];
+  limit: number;
+  page: number;
 }
+
+export const PROMO_CODES = [
+  {
+    code: 'RS',
+    name: 'Rolling Scopes School',
+    value: 10
+  },
+  {
+    code: "EPM",
+    name: 'EPAM Systems',
+    value: 10
+  }
+]
 
 export enum StatusCodes {
   Unauthorized = 401,

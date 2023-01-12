@@ -13,6 +13,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  border-radius: 1rem 1rem 1rem 1rem;
+  border: 2px solid var(--border-color);
 }
 
 .product-title {
@@ -23,7 +25,7 @@
   align-items: center;
   background-color: var(--header-bg-color);
   border-radius: 1rem 1rem 0 0;
-  border: 3px orange;
+  border-bottom: 2px solid var(--border-color);
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -37,5 +39,4 @@
   justify-content: space-around;
   background: var(--bg-color);
   border-radius: 0 0 1rem 1rem;
-  border: 3px orange;
 }

@@ -11,8 +11,8 @@ class ProductButtons extends Component {
     super(parentNode, "div", ["product-buttons"], "");
 
     this.goodPrice = new Component(this.elem, "div", ["good-price"], `$${goodData.price}`);
-    this.addToCartButton = new Component(this.elem, "button", ["product-button"], goodCart.goods.some((e) => e.product.id === goodData.id) ? "DROP FROM CART" : "ADD TO CART");
-    this.buyNowButton = new Component(this.elem, "button", ["product-button"], "BUY NOW");
+    this.addToCartButton = new Component(this.elem, "button", ["add-button"], goodCart.goods.some((e) => e.product.id === goodData.id) ? "DROP FROM CART" : "ADD TO CART");
+    this.buyNowButton = new Component(this.elem, "button", ["buy-button"], "BUY NOW");
 
     this.addToCartButton.elem.onclick = () => {
       if (!goodCart.goods.some((e) => e.product.id === goodData.id)) {
@@ -51,7 +51,9 @@ class ProductButtons extends Component {
         document.querySelector('.cart-amount')!.textContent = `${goodCart.amount}`;
         localStorage.setItem('cart', JSON.stringify(goodCart));
       }
+      localStorage.setItem('buy', 'true');
       window.location.hash = "#/cart";
+
     }
   }
 

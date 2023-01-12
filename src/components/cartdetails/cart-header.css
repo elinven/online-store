@@ -1,0 +1,85 @@
+.cart-header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--header-bg-color);
+  border-radius: 1rem 1rem 0 0;
+  border: 2px solid var(--border-color);
+  border-bottom: 1px solid  var(--border-color);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: green;
+}
+
+.cart-title {
+  font-size: 1.25rem;
+}
+
+.cart-control {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: transparent;
+  gap: 1rem;
+}
+
+.cart-limit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: transparent;
+  gap: 0.3rem;
+}
+
+.limit-text,
+.paginator-text {
+  font-size: 1rem;
+  color: var(--font-color);
+}
+
+.limit-input {
+  height: 2rem;
+  outline: none;
+  border: 1px solid var(--border-color);
+  border-radius: 0.2rem;
+  background-color: var(--button-bg-color);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: green;
+  text-align: center;
+}
+
+.cart-paginator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: transparent;
+  gap: 0.3rem;
+}
+
+.button-left,
+.button-right {
+  height: 2rem;
+  padding: 0.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: 0.2rem;
+}
+
+.page-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+
