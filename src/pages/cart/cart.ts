@@ -28,7 +28,6 @@ export class CartPage extends Component {
   constructor(parentNode: HTMLElement) {
     super(parentNode, "div", ["cart-page"]);
 
-
     let productCart: ProductCart;
     getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 1} : productCart = JSON.parse(<string>getStorageItem('cart'));
 
@@ -53,9 +52,9 @@ export class CartPage extends Component {
       this.cartSummaryPromoData = new Component(this.cartSummaryContainer.elem, "div", ["promo-data"], `Promo: ${promoData.substring(2)}`);
       this.cartSummaryButton = new Component(this.cartSummaryContainer.elem, "button", ["summary-button"], "BUY NOW");
 
-      productCart.goods.forEach((pr, i) => {
+      productCart.goods.filter((pr, i) => i >= productCart.limit * (productCart.page - 1) && i < productCart.limit * productCart.page).forEach((pr, i) => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        this.cartProduct = new CartProduct(this.cartProducts!.elem, productCart, pr.product, pr.amount, i);
+        this.cartProduct = new CartProduct(this.cartProducts!.elem, productCart, pr.product, pr.amount, i + productCart.limit * (productCart.page - 1));
         this.cartProduct.productImage.elem.setAttribute("dataset", `${pr.product.id}`);
         this.cartProduct.productIncrButton.elem.setAttribute("dataset", `${pr.product.id}`);
         this.cartProduct.productDecrButton.elem.setAttribute("dataset", `${pr.product.id}`);
