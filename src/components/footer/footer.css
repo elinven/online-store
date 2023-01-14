@@ -32,6 +32,7 @@
 .github-logo:hover {
   transition: 0.3s all;
   transform: scale(1.05);
+  filter: var(--filter-blue);
   cursor: pointer;
 }
 
@@ -48,6 +49,10 @@
   transition: 0.3s ease-in-out;;
 }
 
+.rsschool:hover {
+  filter: var(--filter-blue);
+}
+
 .footer a {
   text-decoration: none;
 }
@@ -55,4 +60,6 @@
 .footer a:hover {
   transition: 0.3s linear;
   transform: scale(1.05);
+  color: #0057b8;
+  box-shadow: 0 0.5em 0.5em -0.4em #ffc400;
 }
