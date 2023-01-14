@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-:root{
+:root {
   --header-bg-color: #161b22;
   --footer-bg-color: #161b22;
   --bg-color: #0d1117;
@@ -13,6 +13,7 @@
   --button-bg-color: #21262d;
   --bg-hover-color: #4c555d;
   --border-color: #4c555d;
+  --filter-blue: invert(81%) sepia(73%) saturate(3631%) hue-rotate(202deg) brightness(90%) contrast(101%);
 }
 
 a {
