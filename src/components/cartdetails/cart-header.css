@@ -1,9 +1,9 @@
 .cart-header {
   width: 100%;
-  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 0.5rem;
   background-color: var(--header-bg-color);
   border-radius: 1rem 1rem 0 0;
@@ -13,6 +13,7 @@
   font-style: normal;
   font-weight: 700;
   font-size: 1.25rem;
+  text-align: center;
   color: green;
 }
 
@@ -24,6 +25,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   background-color: transparent;
   gap: 1rem;
 }
