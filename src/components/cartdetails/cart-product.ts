@@ -1,4 +1,4 @@
-import { Product, ProductCart } from "../../types/index";
+import { Product, ProductCart} from "../../types/index";
 import Component from "../component";
 import "./cart-product.css";
 
@@ -50,16 +50,15 @@ class CartProduct extends Component {
         goodCart.summa += goodData.price;
         goodCart.goods[index].amount = goodAmount;
         this.productAmount.elem.textContent = `${goodAmount}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-summa')!.textContent = `$${goodCart.summa.toFixed(2)}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-amount')!.textContent = `${goodCart.amount}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.summary-total')!.textContent = `Total: $${goodCart.summa.toFixed(2)}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.promo-total')!.textContent = `Total: $${goodCart.summa.toFixed(2)}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.summary-products')!.textContent = `Products: ${goodCart.amount}`;
+        
+        (<Element>document.querySelector('.cart-summa')).textContent = `$${goodCart.summa.toFixed(2)}`;
+        (<Element>document.querySelector('.cart-amount')).textContent = `${goodCart.amount}`;
+        (<Element>document.querySelector('.summary-products')).textContent = `Products: ${goodCart.amount}`;
+        (<Element>document.querySelector('.summary-total')).textContent = `Total: $${goodCart.summa.toFixed(2)}`;
+        if (goodCart.promo) {
+          (<Element>document.querySelector('.summary-total')).setAttribute("text-decoration", "line-through");
+          (<Element>document.querySelector('.promo-total')).textContent = `Total: $${goodCart.codes.reduce((acc, c) => acc - goodCart.summa * c.value, goodCart.summa).toFixed(2)}`;
+        }
         localStorage.setItem('cart', JSON.stringify(goodCart));
       } 
     });
@@ -69,30 +68,31 @@ class CartProduct extends Component {
         goodAmount -- ;
         goodCart.amount --;
         goodCart.summa -= goodData.price;
-        goodCart.goods[index].amount = goodAmount;
+        (<Element>document.querySelector('.cart-summa')).textContent = `$${goodCart.summa.toFixed(2)}`;
+        (<Element>document.querySelector('.cart-amount')).textContent = `${goodCart.amount}`;
+        (<Element>document.querySelector('.summary-products')).textContent = `Products: ${goodCart.amount}`;
+        (<Element>document.querySelector('.summary-total')).textContent = `Total: $${goodCart.summa.toFixed(2)}`;
+        if (goodCart.promo) {
+          (<Element>document.querySelector('.promo-total')).textContent = `Total: $${goodCart.codes.reduce((acc, c) => acc - goodCart.summa * c.value, goodCart.summa).toFixed(2)}`;
+        }
         if (goodAmount > 0) {
           this.productAmount.elem.textContent = `${goodAmount}`;
           goodCart.goods[index].amount = goodAmount;
+          localStorage.setItem('cart', JSON.stringify(goodCart));
         } else {
           goodCart.goods.splice(index, 1);
-          window.location.hash = `#/cart?page=${goodCart.page}`;
-          location.reload();
+          const oldPage = goodCart.page;
+          goodCart.page = Math.ceil(Math.min(goodCart.page * goodCart.limit, goodCart.goods.length) / goodCart.limit);
+          localStorage.setItem('cart', JSON.stringify(goodCart));
+          if (goodCart.page === oldPage) {
+            location.reload();
+          } else {
+            window.location.hash = `#/cart?page=${goodCart.page}`;
+          }
         }
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-summa')!.textContent = `$${goodCart.summa.toFixed(2)}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-amount')!.textContent = `${goodCart.amount}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.summary-total')!.textContent = `Total: $${goodCart.summa.toFixed(2)}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.summary-products')!.textContent = `Products: ${goodCart.amount}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.promo-total')!.textContent = `Total: $${goodCart.summa.toFixed(2)}`;
-        localStorage.setItem('cart', JSON.stringify(goodCart));
-      } 
+      }
     });
   }
-
 }
 
 export default CartProduct;

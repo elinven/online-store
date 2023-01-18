@@ -34,7 +34,7 @@ export class CartHeader extends Component {
     this.cartLimitNumber.elem.setAttribute("min", "1");
     this.cartLimitNumber.elem.setAttribute("max", "4");
 
-    window.location.hash = `#/cart?page=${goodCart.page}`;
+    //window.location.hash = `#/cart?page=${goodCart.page}`;
 
     this.cartButtonLeft.elem.addEventListener("click", () => {
       if (goodCart.page > 1) {
@@ -55,22 +55,20 @@ export class CartHeader extends Component {
     });
 
     this.cartLimitNumber.elem.addEventListener("input", () => {
-      if (goodCart.page === Math.ceil(goodCart.goods.length/goodCart.limit) && goodCart.goods.length <= Number(this.cartLimitNumber.elem.value) * (goodCart.page - 1)) {
-        goodCart.page --;
-      }
-      if (goodCart.page === Math.ceil(goodCart.goods.length/goodCart.limit) && goodCart.goods.length > Number(this.cartLimitNumber.elem.value) * (goodCart.page - 1)) {
-        goodCart.page ++;
-      }
-      if (goodCart.limit > Number(this.cartLimitNumber.elem.value) && goodCart.page > 1) {
-        goodCart.page --;
-      }
-      if (goodCart.limit <= Number(this.cartLimitNumber.elem.value) && goodCart.page < Math.ceil(goodCart.goods.length/Number(this.cartLimitNumber.elem.value))) {
-        goodCart.page ++;
+      const oldPage = goodCart.page;
+      if (goodCart.limit > Number(this.cartLimitNumber.elem.value)) {
+        goodCart.page = Math.ceil(Math.min(goodCart.page * goodCart.limit, goodCart.goods.length) / Number(this.cartLimitNumber.elem.value));
+      } else {
+        goodCart.page = Math.ceil(((goodCart.page - 1) * goodCart.limit + 1) / Number(this.cartLimitNumber.elem.value));
       }
 
       goodCart.limit = Number(this.cartLimitNumber.elem.value);
       localStorage.setItem('cart', JSON.stringify(goodCart));
-      window.location.hash = `#/cart?page=${goodCart.page}`;
+      if (goodCart.page === oldPage) {
+        location.reload();
+      } else {
+        window.location.hash = `#/cart?page=${goodCart.page}`;
+      }
     });
   }
 

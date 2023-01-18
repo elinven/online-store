@@ -1,5 +1,5 @@
 .product-page {
-  height: calc(100vh - 180px);
+  min-height: calc(100vh - 180px);
   padding: 20px;
   display: flex;
   flex-direction: column;

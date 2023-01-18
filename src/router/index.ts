@@ -41,8 +41,8 @@ export class Router {
       },
       {
         name: "/cart",
-        //component: (params, model) => {
-        component: () => {
+        component: (params, model) => {
+        //component: () => {
           this.cartPage = new CartPage(this.rootElement);
           this.rootElement.append(this.cartPage.elem);
         },
@@ -71,7 +71,15 @@ export class Router {
     let currRouteParam = "";
     if (currRouteArray.length > 1) {
       currRouteParam = String(currRouteArray[1]);
-    } 
+    }
+
+    /*let page: number;
+
+    if (currRouteParam.includes('page')) {
+      page = Number(currRouteParam.split("=")[1]);
+    } else {
+      page = 0;
+    }*/
     
     const currRoute = this.routes.find((page) => (page.name === currRouteName) || (page.name === `/${pagePathName}/:id`));
     

@@ -57,11 +57,12 @@ export class Item extends Component {
         goodCart.goods.push({product: goodData, amount: 1});
         goodCart.amount ++;
         goodCart.summa += goodData.price;
+        if (goodCart.amount === 1) {
+          goodCart.page = 1;
+        }
         this.itemButtonAdd.elem.textContent = "-";
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-summa')!.textContent = `$${goodCart.summa.toFixed(2)}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-amount')!.textContent = `${goodCart.amount}`;
+        (<Element>document.querySelector('.cart-summa')).textContent = `$${goodCart.summa.toFixed(2)}`;
+        (<Element>document.querySelector('.cart-amount')).textContent = `${goodCart.amount}`;
         localStorage.setItem('cart', JSON.stringify(goodCart));
       } else {
         const dropIndex = goodCart.goods.findIndex((e) => e.product.id === goodData.id);
@@ -69,10 +70,8 @@ export class Item extends Component {
         goodCart.summa -= goodCart.goods[dropIndex].product.price * goodCart.goods[dropIndex].amount;
         goodCart.goods.splice(dropIndex, 1);
         this.itemButtonAdd.elem.textContent = "+";
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-summa')!.textContent = `$${goodCart.summa.toFixed(2)}`;
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-amount')!.textContent = `${goodCart.amount}`;
+        (<Element>document.querySelector('.cart-summa')).textContent = `$${goodCart.summa.toFixed(2)}`;
+        (<Element>document.querySelector('.cart-amount')).textContent = `${goodCart.amount}`;
         localStorage.setItem('cart', JSON.stringify(goodCart));
         console.log(goodCart);
       }

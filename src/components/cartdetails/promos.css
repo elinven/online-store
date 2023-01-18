@@ -1,0 +1,94 @@
+.cart-codes {
+  width: 100%;
+  /*min-width: 110px;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.promo-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  color: green;
+  gap: 1rem;
+}
+
+.promo-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--header-bg-color);
+  border-radius: 1rem 1rem 0 0;
+  border-bottom: 1px solid  var(--border-color);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  color: green;
+}
+
+.cart-promos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.promo-input {
+  width: 50%;
+  min-height: 1.5rem;
+  outline: none;
+  border: 1px solid orange;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.add-promo {
+  width: 90%;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.add-description {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.adding-button {
+  width: 20%;
+  min-width: 3rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.promo-data {
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+  color: orange;
+}

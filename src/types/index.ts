@@ -17,7 +17,7 @@ export interface Product {
 
 export interface AppRoute {
   name: string;
-  component: (par: string, model: Model, options?: { id: number }) => void;
+  component: (params: string, model: Model, options?: { id: number }) => void;
 }
 
 export interface PromoCode {

@@ -21,9 +21,8 @@ export class ProductPage extends Component {
     super(parentNode, "div", ["product-page"]);
     const state = model.getState();
     const product = state.products.find((item: { id: number; }) => item.id === id);
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     let productCart: ProductCart;
-    getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 1} : productCart = JSON.parse(<string>getStorageItem('cart'));
+    getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 0} : productCart = JSON.parse(<string>getStorageItem('cart'));
 
     if (product) {
       this.productLinks = new GoodNavigator(this.elem, product);
