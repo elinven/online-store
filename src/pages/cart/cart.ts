@@ -29,8 +29,6 @@ export class CartPage extends Component {
     let productCart: ProductCart;
     getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 0} : productCart = JSON.parse(<string>getStorageItem('cart'));
 
-    //const promoData = PROMO_CODES.reduce((acc, c) => acc + `, ${c.code}`, "");
-
     if (productCart.amount === 0) {
       this.cartContent = new Component(this.elem, "h2", ["cart-components"], "CART IS EMPTY");
     } else {
@@ -52,24 +50,18 @@ export class CartPage extends Component {
       productCart.goods.filter((pr, i) => i >= productCart.limit * (productCart.page - 1) && i < productCart.limit * productCart.page).forEach((pr, i) => {
         this.cartProduct = new CartProduct(<HTMLElement>this.cartProducts?.elem, productCart, pr.product, pr.amount, i + productCart.limit * (productCart.page - 1));
         this.cartProduct.productImage.elem.setAttribute("dataset", `${pr.product.id}`);
-        //this.cartProduct.productIncrButton.elem.setAttribute("dataset", `${pr.product.id}`);
-        //this.cartProduct.productDecrButton.elem.setAttribute("dataset", `${pr.product.id}`);
       });
 
-      console.log(productCart.promo);
-      if (productCart.promo === false) {
-        this.cartSummaryTotal.elem.setAttribute("text-decoration", "none");
+      if (!productCart.promo) {
+        this.cartSummaryTotal.elem.setAttribute("style", "text-decoration: none");
       } else {
-        this.cartSummaryTotal.elem.setAttribute("text-decoration", "line-through");
+        this.cartSummaryTotal.elem.setAttribute("style", "text-decoration: line-through 0.25px solid #fff");
         this.cartSummaryTotalPromo.elem.textContent = `Total: $${promoTotal.toFixed(2)}`;
-        //this.cartSummaryTotalPromo.elem.setAttribute("visibility", "visibility");
       }
     }
 
     this.cartPurchase = new PurchaseModal(this.elem);
 
-    console.log(getStorageItem('buy'));
-    console.log(typeof getStorageItem('buy'));
     if (getStorageItem('buy') === 'true') {
       this.openPurchaseModalWindow();
       localStorage.setItem('buy', 'false');
@@ -85,9 +77,7 @@ export class CartPage extends Component {
         localStorage.setItem('cart', JSON.stringify(productCart));
         window.location.hash = `#/product-details/${target.getAttribute("dataset")}`;
       }
-
     });
-
   }
 
   openPurchaseModalWindow = () => {

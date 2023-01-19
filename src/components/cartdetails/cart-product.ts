@@ -56,8 +56,7 @@ class CartProduct extends Component {
         (<Element>document.querySelector('.summary-products')).textContent = `Products: ${goodCart.amount}`;
         (<Element>document.querySelector('.summary-total')).textContent = `Total: $${goodCart.summa.toFixed(2)}`;
         if (goodCart.promo) {
-          (<Element>document.querySelector('.summary-total')).setAttribute("text-decoration", "line-through");
-          (<Element>document.querySelector('.promo-total')).textContent = `Total: $${goodCart.codes.reduce((acc, c) => acc - goodCart.summa * c.value, goodCart.summa).toFixed(2)}`;
+          (<Element>document.querySelector('.promo-total')).textContent = `Total: $${goodCart.codes.reduce((acc, c) => acc - goodCart.summa /100 * c.value, goodCart.summa).toFixed(2)}`;
         }
         localStorage.setItem('cart', JSON.stringify(goodCart));
       } 
@@ -73,7 +72,7 @@ class CartProduct extends Component {
         (<Element>document.querySelector('.summary-products')).textContent = `Products: ${goodCart.amount}`;
         (<Element>document.querySelector('.summary-total')).textContent = `Total: $${goodCart.summa.toFixed(2)}`;
         if (goodCart.promo) {
-          (<Element>document.querySelector('.promo-total')).textContent = `Total: $${goodCart.codes.reduce((acc, c) => acc - goodCart.summa * c.value, goodCart.summa).toFixed(2)}`;
+          (<Element>document.querySelector('.promo-total')).textContent = `Total: $${goodCart.codes.reduce((acc, c) => acc - goodCart.summa / 100 * c.value, goodCart.summa).toFixed(2)}`;
         }
         if (goodAmount > 0) {
           this.productAmount.elem.textContent = `${goodAmount}`;

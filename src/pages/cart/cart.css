@@ -6,7 +6,7 @@
 
 .cart-page {
   min-height: calc(100vh - 180px);
-  padding: 2rem; 
+  padding: 1rem; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -22,7 +22,7 @@
 
 .cart-container {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 0.5rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
