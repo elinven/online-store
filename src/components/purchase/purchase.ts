@@ -1,4 +1,3 @@
-//import { ProductCart } from "../../types/index";
 import { Card } from "../card/card";
 import Component from "../component";
 import { Person, MAIL_REGEXP } from "../person/person";
@@ -74,16 +73,14 @@ export class PurchaseModal extends Component {
 
     if (isPersonName && isPersonPhoneNumber && isPersonDeliveryAddress && isPersonMail && isCardNumber && isCardValidThru && isCardCVV) {
       setTimeout(() => {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-summa')!.textContent = '0.00';
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        document.querySelector('.cart-amount')!.textContent = '0';
-        localStorage.setItem('cart', JSON.stringify({amount: 0, summa: 0, goods: [], codes: [], limit: 3, page: 1}));
+        (<Element>document.querySelector('.cart-summa')).textContent = '0.00';
+        (<Element>document.querySelector('.cart-amount')).textContent = '0';
+        localStorage.setItem('cart', JSON.stringify({amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 0}));
         this.elem.classList.remove('open');
         document.body.classList.remove('scroll-lock');
         window.location.hash = `#/${getStorageItem('hash')}`;
         location.reload();
-      }, 5000);
+      }, 4000);
       this.confirmMessage.elem.textContent = "Confirm sucssesfully!";
     } else {
       this.confirmMessage.elem.textContent = "";

@@ -1,5 +1,5 @@
 .product-page {
-  height: calc(100vh - 180px);
+  min-height: calc(100vh - 180px);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -9,10 +9,11 @@
 }
 
 .product-container {
-  width: 930px;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  flex-wrap: wrap;
   border-radius: 1rem 1rem 1rem 1rem;
   border: 2px solid var(--border-color);
 }

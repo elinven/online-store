@@ -1,6 +1,6 @@
 import { ProductCart } from "../../types/index";
 import Component from "../component";
-import Logo from "../logo/index";
+import Logo from "../logo/logo";
 import { getStorageItem } from "../utils/loader";
 import "./header.css";
 
@@ -25,17 +25,10 @@ export class Header extends Component {
     this.cartTotal = new Component(this.elem, "div", ["cart-total"]);
     this.cartAmount = new Component(this.cartTotal.elem, "div", ["cart-amount"], `${productCart.amount}`);
 
-    this.appLogo.elem.addEventListener("click", () => {
-      window.location.hash = "#/";
-    });
-
     this.cartTotal.elem.addEventListener("click", () => {
       window.location.hash = "#/cart";
     });
 
-   /* this.cartAmount.elem.addEventListener("click", () => {
-      window.location.hash = "#/cart";
-    });*/
   }
 
 }

@@ -1,0 +1,40 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  cursor: pointer;
+  gap: 0.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+.logo:hover {
+  color: #0057b8;
+  filter: var(--filter-blue);
+}
+
+.logo-svg {
+  width: 30px;
+  height: 48px;
+  background-image: url("../../assets/svg/shopping-bag.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.3s ease-in-out;
+
+}
+
+.logo-svg:hover {
+  filter: var(--filter-blue);
+  box-shadow: 0 0.5em 0.5em -0.4em #ffc400;
+}
+
+.logo-title {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.logo-title:hover {
+  color: #0057b8;
+  box-shadow: 0 0.5em 0.5em -0.4em #ffc400;
+}

@@ -5,8 +5,8 @@
 }
 
 .cart-page {
-  height: calc(100vh - 180px);
-  padding: 2rem; 
+  min-height: calc(100vh - 180px);
+  padding: 1rem; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -22,7 +22,7 @@
 
 .cart-container {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 0.5rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
@@ -39,6 +39,7 @@
 }
 
 .cart-products {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -46,21 +47,21 @@
   border-radius: 0 0 1rem 1rem;
   border: 2px solid var(--border-color);
   border-top: none;
-
+  overflow: auto;
 }
 
 .summary-container {
   width: 25%;
+  min-width: 110px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 1rem;
   border: 2px solid var(--border-color);
   border-radius: 1rem;
-  padding: 0.5rem;
   background-color: var(--bg-color);
   border-top: 1px solid var(--border-color);
-  border-radius: 1rem;
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -69,26 +70,33 @@
   gap: 1rem;
 }
 
+.summary-title {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--header-bg-color);
+  border-radius: 1rem 1rem 0 0;
+  border-bottom: 1px solid  var(--border-color);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-align: center;
+  color: green;
+}
+
 .summary-products,
 .summary-total,
 .promo-total {
   font-size: 1.25rem;
+  text-align: center;
 }
 
 .summary-button {
   width: 40%;
   height: 2rem;
-}
-
-.promo-input {
-  width: 50%;
-  min-height: 25px;
-  outline: none;
-  border: 1px solid orange;
-  border-radius: 0.75rem;
-  text-align: center;
-}
-
-.promo-data {
-  color: orange;
+  border-radius: 0.5rem;
 }
