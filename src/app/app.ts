@@ -6,16 +6,14 @@ import { Model } from "../model/Model";
 import cardsInfo from "../components/goods";
 
 export class App {
-  private header;
   private main;
   private router;
-  private footer;
 
   constructor(private rootElement: HTMLElement) {
-    this.header = new Header(this.rootElement);
+    new Header(this.rootElement);
     this.main = new Component(this.rootElement, "main", ["main"]);
     this.router = new Router(this.main.elem); 
-    this.footer = new Footer(this.rootElement);
+    new Footer(this.rootElement);
   }
 
   start(): void {

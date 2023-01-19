@@ -19,13 +19,13 @@ export class Person extends Component {
     super(parentNode, "div", ["person-container"]);
   
     this.personTitle = new Component(this.elem, "div", ["person-title"], "Personal detail");
-    this.personName = new InputComponent(this.elem, "text", ["person-input", "person-name"], "Name", "[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}");
+    this.personName = new InputComponent(this.elem, "text", ["person-input", "person-name"], "Name");
     this.personNameError = new Component(this.elem, "div", ["name-error"], "");
-    this.personPhoneNumber = new InputComponent(this.elem, "text", ["person-input", "person-phone"], "Phone number", "[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}");
+    this.personPhoneNumber = new InputComponent(this.elem, "text", ["person-input", "person-phone"], "Phone number");
     this.personPhoneNumberError = new Component(this.elem, "div", ["phone-error"], "");
-    this.personDeliveryAddress = new InputComponent(this.elem, "text", ["person-input", "person-address"], "Delivery address", "[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}");
+    this.personDeliveryAddress = new InputComponent(this.elem, "text", ["person-input", "person-address"], "Delivery address");
     this.personDeliveryAddressError = new Component(this.elem, "div", ["address-error"], "");
-    this.personMail = new InputComponent(this.elem, "text", ["person-input", "person-mail"], "E-mail", "[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}");
+    this.personMail = new InputComponent(this.elem, "text", ["person-input", "person-mail"], "E-mail");
     this.personMailError = new Component(this.elem, "div", ["mail-error"], "");
   
     this.personPhoneNumber.elem.oninput = () => this.onPersonPhoneNumberInput();

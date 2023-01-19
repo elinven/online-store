@@ -9,10 +9,7 @@ import { Model } from "../model/Model";
 export class Router {
   model: Model;
   private routes: Array<AppRoute>;
-  //private readonly routesArr: Array<AppRoute>;
   private defaultRoute: AppRoute;
-
-  //onInitUserCart: () => void;
 
   storePage?: Component;
   productPage?: Component;
@@ -22,7 +19,6 @@ export class Router {
 
   constructor(private rootElement: HTMLElement) {
     this.model = new Model();
-    //this.onInitUserCart = () => onInitCart();
     this.routes = [
       {
         name: "/",
@@ -41,8 +37,8 @@ export class Router {
       },
       {
         name: "/cart",
-        component: (params, model) => {
-        //component: () => {
+        //component: (params, model) => {
+        component: () => {
           this.cartPage = new CartPage(this.rootElement);
           this.rootElement.append(this.cartPage.elem);
         },
@@ -80,7 +76,7 @@ export class Router {
     } else {
       page = 0;
     }*/
-    
+
     const currRoute = this.routes.find((page) => (page.name === currRouteName) || (page.name === `/${pagePathName}/:id`));
     
     if (!currRoute) {
@@ -95,10 +91,7 @@ export class Router {
       }
       this.currentRoute = currRoute.name;
     }
-    
-    /*!currRouteParam ? window.location.hash = (currRoute || this.defaultRoute).name : window.location.hash = (currRoute || this.defaultRoute).name + "?" + currRouteParam;
-    (currRoute || this.defaultRoute).component(currRouteParam);
-    this.currentRoute = (currRoute || this.defaultRoute).name;*/
+
   }
 
   initRouter(model: Model): void {

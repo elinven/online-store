@@ -33,7 +33,7 @@ export class ProductPage extends Component {
       this.productDetails = new GoodDetails(this.detailsContainer.elem, product);
       this.productButtons = new ProductButtons(this.detailsContainer.elem, product, productCart);
     } else {
-      this.productTitle = new Component(this.elem, "h1", ["product-title"], "PRODUCT DETAILS with following ID were not found:" + id);
+      this.productTitle = new Component(this.elem, "h1", ["product-title"], `PRODUCT DETAILS with ID = ${id} were not found`);
     }
   }
 }
