@@ -24,7 +24,6 @@ export class Router {
         name: "/",
         component: (params, model) => {
           this.storePage = new StorePage(this.rootElement, model);
-          this.rootElement.append(this.storePage.elem);
         },
       },
 
@@ -32,7 +31,6 @@ export class Router {
         name: "/product-details/:id",
         component: (params, model, options) => {
           this.productPage = new ProductPage(this.rootElement, model, options?.id);
-          this.rootElement.append(this.productPage.elem);
         },
       },
       {
@@ -40,7 +38,6 @@ export class Router {
         //component: (params, model) => {
         component: () => {
           this.cartPage = new CartPage(this.rootElement);
-          this.rootElement.append(this.cartPage.elem);
         },
       },
     ];
@@ -51,7 +48,6 @@ export class Router {
       name: "",
       component: () => {
         this.errorPage = new Page404(this.rootElement);
-        this.rootElement.append(this.errorPage.elem);
       },
     };
 

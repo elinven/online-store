@@ -5,6 +5,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+
   background-color: transparent;
   color: orange;
 }
@@ -18,6 +19,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
   border: 1px solid orange;
   border-radius: 0.5rem;
   background: linear-gradient(90deg,rgb(0,9,36) 6%,rgb(9,9,121) 34%,rgb(0,212,255) 100%);
@@ -36,6 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
   background-color: aliceblue;
   border-radius: 0.5rem;
 }
@@ -83,9 +86,11 @@
 .app-input {
   min-height: 25px;
   outline: none;
+
+  text-align: center;
+
   border: 1px solid orange;
   border-radius: 0.75rem;
-  text-align: center;
 }
 
 .card-error,

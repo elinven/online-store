@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   border-radius: 20px;
   border: 2px var(--border-color);
 }
@@ -15,11 +16,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--header-bg-color);
-  color: green;
+
   font-size: 1.25rem;
   font-weight: 500;
   text-align: center;
+
+  background-color: var(--header-bg-color);
+  color: green;
 }
 
 .detail-content {
@@ -29,9 +32,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  font-weight: 300;
+  font-size: 1rem;
   text-align: center;
+
   background-color: var(--bg-hover-color);
   color: var(--font-color);
-  font-size: 1rem;
-  font-weight: 300;
 }

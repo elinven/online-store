@@ -18,3 +18,13 @@
   min-height: 2rem;
   border-radius: 0.5rem;
 }
+
+/* --- Adaptive 768px ---*/
+
+@media (max-width: 768px) {
+
+  .good-price  {
+    font-size: 1rem;
+  }
+
+}
