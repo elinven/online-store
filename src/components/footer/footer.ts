@@ -4,6 +4,7 @@ import "./footer.css";
 export class Footer extends Component {
   private footerLeftContainer;
   private githubLogo;
+  private teamDeveloperLinks;
   private firstTeamDeveloperLink;
   private secondTeamDeveloperLink;
   private appYearContainer;
@@ -15,8 +16,9 @@ export class Footer extends Component {
 
     this.footerLeftContainer = new Component(this.elem, "div", ["footer-left"]);
     this.githubLogo = new Component(this.footerLeftContainer.elem, "a", ["github-logo"]);
-    this.firstTeamDeveloperLink = new Component(this.footerLeftContainer.elem, "a", ["app-developer"], "elinven");
-    this.secondTeamDeveloperLink = new Component(this.footerLeftContainer.elem, "a", [ "app-developer"], "slysnek");
+    this.teamDeveloperLinks = new Component(this.footerLeftContainer.elem, "div", ["team-developers"]);
+    this.firstTeamDeveloperLink = new Component(this.teamDeveloperLinks.elem, "a", ["app-developer"], "elinven");
+    this.secondTeamDeveloperLink = new Component(this.teamDeveloperLinks.elem, "a", [ "app-developer"], "slysnek");
     this.appYearContainer = new Component(this.elem, "div", ["app-year"], "Online Store 2023");
     this.footerRightContainer = new Component(this.elem, "div", ["footer-right"]);
     this.rsschool = new Component(this.footerRightContainer.elem, "a", ["rsschool"]);

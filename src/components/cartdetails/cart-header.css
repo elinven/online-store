@@ -1,19 +1,21 @@
 .cart-header {
   width: 100%;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0.5rem;
-  background-color: var(--header-bg-color);
-  border-radius: 1rem 1rem 0 0;
-  border: 2px solid var(--border-color);
-  border-bottom: 1px solid  var(--border-color);
+
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 1.25rem;
   text-align: center;
+
+  background-color: var(--header-bg-color);
+  border-radius: 1rem 1rem 0 0;
+  border: 2px solid var(--border-color);
+  border-bottom: 1px solid  var(--border-color);
   color: green;
 }
 
@@ -26,44 +28,50 @@
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  background-color: transparent;
   gap: 1rem;
+
+  background-color: transparent;
 }
 
 .cart-limit {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: transparent;
   gap: 0.3rem;
+
+  background-color: transparent;
 }
 
 .limit-text,
 .paginator-text {
   font-size: 1rem;
+
   color: var(--font-color);
 }
 
 .limit-input {
   height: 2rem;
   outline: none;
-  border: 1px solid var(--border-color);
-  border-radius: 0.2rem;
-  background-color: var(--button-bg-color);
+
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 1.5rem;
-  color: green;
   text-align: center;
+
+  border: 1px solid var(--border-color);
+  border-radius: 0.2rem;
+  background-color: var(--button-bg-color);
+  color: green;
 }
 
 .cart-paginator {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: transparent;
   gap: 0.3rem;
+
+  background-color: transparent;
 }
 
 .button-left,
@@ -73,7 +81,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   font-size: 1.5rem;
+
   border-radius: 0.2rem;
 }
 
@@ -81,6 +91,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: transparent;
 }
 

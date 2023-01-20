@@ -1,15 +1,19 @@
 .footer {
-  margin-top: auto;
-  height: 80px;
-  padding: 20px 100px;
+  min-height: 80px;
+  margin-top: 0 auto;
+  padding: 1rem 0.5rem;
+  z-index: 2;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  text-align: center;
+
   box-shadow: 0px 0px 8px #333333;
   background: var(--footer-bg-color);
-  z-index: 2;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
 }
 
 .footer-left,
@@ -17,15 +21,17 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  column-gap: 20px;
+  gap: 0.5rem;
 }
 
 .github-logo {
   width: 50px;
   height: 50px;
+
   background-image: url("../../assets/svg/github.svg");
   background-size: contain;
   background-repeat: no-repeat;
+
   transition: 0.3s ease-in-out;
 }
 
@@ -36,16 +42,26 @@
   cursor: pointer;
 }
 
-.app-developer {
-  font-size: 1.5rem;
+.team-developers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
+/*.app-developer {
+  font-size: 1.5rem;
+}*/
+
 .rsschool {
-  width: 135px;
-  height: 50px;
+  width: 105px;
+  height: 40px;
+
   background-image: url("../../assets/svg/rsschool.svg");
   background-size: contain;
   background-repeat: no-repeat;
+
   transition: 0.3s ease-in-out;;
 }
 
@@ -58,8 +74,19 @@
 }
 
 .footer a:hover {
-  transition: 0.3s linear;
-  transform: scale(1.05);
   color: #0057b8;
   box-shadow: 0 0.5em 0.5em -0.4em #ffc400;
+
+  transition: 0.3s linear;
+  transform: scale(1.05);
+}
+
+/* --- Adaptive 520px ---*/
+
+@media (max-width: 520px) {
+
+  .app-developer {
+    font-size: 1rem;
+  }
+
 }

@@ -73,13 +73,12 @@ export class PurchaseModal extends Component {
 
     if (isPersonName && isPersonPhoneNumber && isPersonDeliveryAddress && isPersonMail && isCardNumber && isCardValidThru && isCardCVV) {
       setTimeout(() => {
-        (<Element>document.querySelector('.cart-summa')).textContent = '0.00';
+        (<Element>document.querySelector('.cart-summa')).textContent = '$0.00';
         (<Element>document.querySelector('.cart-amount')).textContent = '0';
         localStorage.setItem('cart', JSON.stringify({amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 0}));
         this.elem.classList.remove('open');
         document.body.classList.remove('scroll-lock');
         window.location.hash = `#/${getStorageItem('hash')}`;
-        location.reload();
       }, 4000);
       this.confirmMessage.elem.textContent = "Confirm sucssesfully!";
     } else {
