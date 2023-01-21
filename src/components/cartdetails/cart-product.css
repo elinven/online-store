@@ -1,0 +1,142 @@
+.cart-product {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  border-radius: 0 0 1rem 1rem;
+  color: green;
+}
+
+.product-index {
+  width: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+}
+
+.img-container {
+  width: 20%;
+  height: 100%;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 150px;
+  max-height: 100px;
+
+  cursor: pointer;
+}
+
+.product-details {
+  height: 100%;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product-name {
+  width: 100%;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.25rem;
+  text-align: center;
+
+  color: var(--font-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.product-description {
+  width: 100%;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1rem;
+  text-align: center;
+
+  color: var(--font-color);
+}
+
+.number-data {
+  width: 100%;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+  font-size: 1rem;
+}
+
+.product-rating,
+.product-discount,
+.product-stock,
+.product-price {
+  text-align: center;
+}
+
+.product-choice {
+  width: 20%;
+  height: 100%;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.product-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.control-button {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.5rem;
+
+  border-radius: 1rem;
+}
+
+/* --- Adaptive 768px ---*/
+
+@media (max-width: 768px) {
+
+  .product-index  {
+    font-size: 1rem;
+  }
+
+}

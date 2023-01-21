@@ -1,0 +1,67 @@
+:root{
+  --header-bg-color: #161b22;
+  --footer-bg-color: #161b22;
+  --bg-color: #0d1117;
+  --font-color: #c9d1d9;
+  --filter-color: #1e2633;
+  --button-bg-color: #21262d;
+  --bg-hover-color: #4c555d;
+  --border-color: #4c555d;
+}
+
+.filter-wrapper{
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+  justify-content: flex-start;
+  border: 1px solid var(--border-color);
+  gap: 8px;
+  order: 1;
+  background: var(--filter-color)
+}
+
+.filter-wrapper-option{
+  max-height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  padding-right: 30px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-option{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.category-label{
+  margin-right: 16px;
+}
+
+.filter-category, .filter-brand{
+  margin-top: 8px;
+}
+
+.reset-filter-button{
+  border-radius: 6px;
+  font-size: 1.2em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.test-filter{
+  width: 100%;
+  margin-top: 40px;
+}

@@ -1,0 +1,27 @@
+.good-nav {
+  width: 100%;
+  height: auto;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.good-link {
+  transition: 0.3s;
+
+  cursor: pointer;
+}
+
+.good-link:hover {
+  transform: scale(1.1);
+}
+
+.good-link,
+.good-text {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+}

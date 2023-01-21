@@ -1,0 +1,291 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --header-bg-color: #161b22;
+  --footer-bg-color: #161b22;
+  --bg-color: #0d1117;
+  --font-color: #c9d1d9;
+  --filter-color: #1e2633;
+  --button-bg-color: #21262d;
+  --bg-hover-color: #4c555d;
+  --border-color: #4c555d;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+button{
+  font-family: 'Montserrat', sans-serif;
+  padding: 4px;
+  background-color: var(--button-bg-color);
+  color: var(--font-color);
+  cursor:pointer;
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+}
+
+button:hover{
+  background-color: var(--bg-hover-color);
+}
+
+header{
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--header-bg-color);
+  box-shadow: 0px 1px 16px #333333;
+  padding: 20px 100px;
+  width: 100%;
+  z-index: 2;
+}
+
+.header-logo{
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo:hover{
+  transition: 0.5s;
+  background-color: var(--bg-hover-color);
+}
+
+.header-shopping-cart{
+  width: 36px;
+  height: 36px;
+}
+
+.header-shopping-cart:hover{
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+
+.header-logo-bag{
+  width: 40px;
+  height: 40px;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: var(--bg-color);
+  color: var(--font-color);
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+main{
+  display: flex;
+  flex-direction: row;
+  padding: 20px 100px;
+}
+
+.filter-wrapper{
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 1px solid var(--border-color);
+  gap: 8px;
+  background: var(--filter-color)
+}
+
+.filter-wrapper-option{
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filter-category, .filter-brand{
+  margin-top: 8px;
+}
+
+.goods-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-left: none;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+.sort-and-search-wrapper{
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sort-wrapper, .search-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sort-select, .goods-search{
+  padding: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #333333;
+  border-radius: 6px;
+}
+
+.sort-button, .search-button{
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--button-bg-color);
+  font-size: 1em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 24px;
+  color: var(--font-color);
+}
+
+.search-button{
+  width: 72px;
+}
+
+.sort-button:hover, .search-button:hover{
+  cursor: pointer;
+  background-color: var(--bg-hover-color);
+}
+
+.goods-showcase{
+  display: flex;
+  padding: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.goods-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  width: 200px;
+  height: 260px;
+  background: var(--filter-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0px 4px 16px #222222;
+}
+
+.goods-item-upper-section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.goods-item-category-and-brand-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.goods-item-photo-wrapper{
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/img/redmi-note5.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.goods-item-photo{
+  height: 100%;
+  width: 100%;
+}
+
+.goods-item-info{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.goods-item-lower-section{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.goods-item-buttons{
+  width: 66%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.goods-item-button{
+  border-radius: 6px;
+  font-size: 1.2em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+}
+
+.goods-item-details{
+  font-size: 1em;
+  width: 80px;
+}
+
+footer{
+  margin-top: auto;
+  height: 80px;
+  padding: 20px 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 8px #333333;
+  background: var(--footer-bg-color);
+  z-index: 2;
+}

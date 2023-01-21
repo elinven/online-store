@@ -1,0 +1,11 @@
+.store-page {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 100px;
+}
+
+.store-content {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}

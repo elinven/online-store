@@ -1,0 +1,111 @@
+.scroll-lock {
+  height: 100%;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+.cart-page {
+  min-height: calc(100vh - 180px);
+  padding: 1rem; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  background: var(--bg-color);
+}
+
+.cart-components {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.cart-container {
+  width: 100%;
+  padding: 0 0.5rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.products-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  border-radius: 0 0 1rem 1rem;
+}
+
+.cart-products {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  border-radius: 0 0 1rem 1rem;
+  border: 2px solid var(--border-color);
+  border-top: none;
+
+  overflow: auto;
+}
+
+.summary-container {
+  width: 25%;
+  min-width: 110px;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  color: green;
+}
+
+.summary-title {
+  width: 100%;
+  height: 50px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-align: center;
+
+  background-color: var(--header-bg-color);
+  border-radius: 1rem 1rem 0 0;
+  border-bottom: 1px solid  var(--border-color);
+  color: green;
+}
+
+.summary-products,
+.summary-total,
+.promo-total {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.summary-button {
+  width: 40%;
+  height: 2rem;
+
+  border-radius: 0.5rem;
+}
