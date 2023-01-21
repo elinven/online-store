@@ -16,7 +16,7 @@ export class Header extends Component {
     super(parentNode, "div", ["header"]);
 
     let productCart: ProductCart;
-    getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 1} : productCart = JSON.parse(<string>getStorageItem('cart'));
+    getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 0} : productCart = JSON.parse(<string>getStorageItem('cart'));
     
     this.appLogo = new Logo(this.elem);
     this.cartCost = new Component(this.elem, "div", ["cart-cost"]);
@@ -26,7 +26,12 @@ export class Header extends Component {
     this.cartAmount = new Component(this.cartTotal.elem, "div", ["cart-amount"], `${productCart.amount}`);
 
     this.cartTotal.elem.addEventListener("click", () => {
-      window.location.hash = "#/cart";
+      getStorageItem('cart') === "" ? productCart = {amount: 0, summa: 0, goods: [], promo: false, codes: [], limit: 3, page: 0} : productCart = JSON.parse(<string>getStorageItem('cart'));
+      if (productCart.page === 0) {
+        window.location.hash = "#/cart";
+      } else {
+        window.location.hash = `#/cart?page=${productCart.page}`;
+      }
     });
 
   }

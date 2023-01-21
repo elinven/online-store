@@ -35,7 +35,6 @@ export class Router {
       },
       {
         name: "/cart",
-        //component: (params, model) => {
         component: () => {
           this.cartPage = new CartPage(this.rootElement);
         },
@@ -54,7 +53,6 @@ export class Router {
   }
 
   updateRouter(): void {
-    this.rootElement.innerHTML = "";
     const currRouteFromHash = window.location.hash.slice(1);
     const [pagePathName, id = null] = currRouteFromHash.split('/').filter((item) => !!item);
     
@@ -64,14 +62,6 @@ export class Router {
     if (currRouteArray.length > 1) {
       currRouteParam = String(currRouteArray[1]);
     }
-
-    /*let page: number;
-
-    if (currRouteParam.includes('page')) {
-      page = Number(currRouteParam.split("=")[1]);
-    } else {
-      page = 0;
-    }*/
 
     const currRoute = this.routes.find((page) => (page.name === currRouteName) || (page.name === `/${pagePathName}/:id`));
     

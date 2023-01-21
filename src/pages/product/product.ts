@@ -18,6 +18,7 @@ export class ProductPage extends Component {
   private productButtons: ProductButtons | undefined;
 
   constructor(parentNode: HTMLElement, model: Model, id?: number) {
+    parentNode.innerHTML = "";
     super(parentNode, "div", ["product-page"]);
     const state = model.getState();
     const product = state.products.find((item: { id: number; }) => item.id === id);

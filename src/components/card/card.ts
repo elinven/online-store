@@ -1,5 +1,6 @@
 import Component from "../component";
 import InputComponent from "../inputcomponent";
+import onInputChange from "../utils/input-change";
 import "./card.css";
 
 const PAYMENT_SYSTEMS = [
@@ -53,33 +54,9 @@ export class Card extends Component {
     this.cardNumber.elem.oninput = () => this.onCardNumberInput();
     this.cardValidThru.elem.oninput = () => this.onCardValidThruInput();
     this.cardCVVCode.elem.oninput = () => this.cardCVVCode.elem.value = this.cardCVVCode.elem.value.substring(0, 3);
-    this.cardNumber.elem.onchange = () => this.onCardNumberChange();
-    this.cardValidThru.elem.onchange = () => this.onCardValidThruChange();
-    this.cardCVVCode.elem.onchange = () => this.onCardCVVChange();
-  }
-
-  onCardNumberChange = () => {
-    if (!/[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}/.test(this.cardNumber.elem.value)) {
-      this.cardNumberError.elem.textContent = "Card number - error";
-    } else {
-      this.cardNumberError.elem.textContent = "";
-    }
-  }
-
-  onCardValidThruChange = () => {
-    if (!/[0-1][0-2]\/\d{2}/.test(this.cardValidThru.elem.value)) {
-      this.cardValidThruError.elem.textContent = "Card valid thru - error";
-    } else {
-      this.cardValidThruError.elem.textContent = "";
-    }
-  }
-
-  onCardCVVChange = () => {
-    if (!/\d{3}/.test(this.cardCVVCode.elem.value)) {
-      this.cardCVVError.elem.textContent = "Card CVV - error";
-    } else {
-      this.cardCVVError.elem.textContent = "";
-    }
+    this.cardNumber.elem.onchange = () => onInputChange(/[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}/, this.cardNumber, this.cardNumberError, "Card number - error");
+    this.cardValidThru.elem.onchange = () => onInputChange(/[0-1][0-2]\/\d{2}/, this.cardValidThru, this.cardValidThruError, "Card valid thru - error");
+    this.cardCVVCode.elem.onchange = () => onInputChange(/\d{3}/, this.cardCVVCode, this.cardCVVError, "Card CVV - error");
   }
 
   onCardNumberInput = () => {
@@ -112,4 +89,3 @@ export class Card extends Component {
   }
 
 }
-

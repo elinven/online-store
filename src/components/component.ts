@@ -18,6 +18,10 @@ class Component {
   delete(): void {
     this.elem.remove();
   }
+
+  clear(): void {
+    this.elem.innerHTML = "";
+  }
 }
 
 export default Component;
