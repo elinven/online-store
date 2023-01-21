@@ -7,6 +7,7 @@ const onInputChange = (regexp: RegExp, inputElement: InputComponent, errorElemen
   } else {
     errorElement.elem.textContent = "";
   }
+  return errorElement.elem.textContent;
 }
 
 export default onInputChange;
