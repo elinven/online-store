@@ -19,6 +19,7 @@ export class StorePage extends Component {
   private resetFilters?: Component;
 
   constructor(parentNode: HTMLElement, model: Model) {
+    parentNode.innerHTML = "";
     super(parentNode, "div", ["store-page"]);
 
     //search

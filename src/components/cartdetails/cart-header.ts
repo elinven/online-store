@@ -1,6 +1,7 @@
 import { ProductCart } from "../../types/index";
 import Component from "../component";
 import InputComponent from "../inputcomponent";
+import goRouter from "../utils/go-router";
 //import { getStorageItem } from "../utils/loader";
 import "./cart-header.css";
 
@@ -40,8 +41,7 @@ export class CartHeader extends Component {
       if (goodCart.page > 1) {
         goodCart.page --;
         this.cartPageNumber.elem.textContent = `${goodCart.page}`;
-        localStorage.setItem('cart', JSON.stringify(goodCart));
-        window.location.hash = `#/cart?page=${goodCart.page}`;
+        goRouter(`#/cart?page=${goodCart.page}`, goodCart);
       } 
     });
 
@@ -49,8 +49,7 @@ export class CartHeader extends Component {
       if (goodCart.page < Math.ceil(goodCart.goods.length/goodCart.limit)) {
         goodCart.page ++;
         this.cartPageNumber.elem.textContent = `${goodCart.page}`;
-        localStorage.setItem('cart', JSON.stringify(goodCart));
-        window.location.hash = `#/cart?page=${goodCart.page}`;
+        goRouter(`#/cart?page=${goodCart.page}`, goodCart);
       } 
     });
 

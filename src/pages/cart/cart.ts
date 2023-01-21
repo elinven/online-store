@@ -3,6 +3,7 @@ import CartProduct from "../../components/cartdetails/cart-product";
 import PromoCodes from "../../components/cartdetails/promos";
 import Component from "../../components/component";
 import { PurchaseModal } from "../../components/purchase/purchase";
+import goRouter from "../../components/utils/go-router";
 import { getStorageItem } from "../../components/utils/loader";
 import { ProductCart } from "../../types/index";
 import "./cart.css";
@@ -24,6 +25,7 @@ export class CartPage extends Component {
   private cartSummaryButton;
 
   constructor(parentNode: HTMLElement) {
+    parentNode.innerHTML = "";
     super(parentNode, "div", ["cart-page"]);
 
     let productCart: ProductCart;
@@ -74,8 +76,7 @@ export class CartPage extends Component {
     this.cartProducts?.elem.addEventListener("click", (e:MouseEvent) => {
       const target = <HTMLElement>(e.target);
       if (target.classList.contains('product-image')) {
-        localStorage.setItem('cart', JSON.stringify(productCart));
-        window.location.hash = `#/product-details/${target.getAttribute("dataset")}`;
+        goRouter(`#/product-details/${target.getAttribute("dataset")}`, productCart);
       }
     });
   }

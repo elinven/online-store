@@ -1,5 +1,6 @@
 import { Product, ProductCart } from "../../types/index";
 import Component from "../component";
+import goRouter from "../utils/go-router";
 import "./product-buttons.css";
 
 class ProductButtons extends Component {
@@ -47,8 +48,7 @@ class ProductButtons extends Component {
         goodCart.page = Math.ceil((goodCart.goods.findIndex((e) => e.product.id === goodData.id) + 1)/goodCart.limit);
       }
       localStorage.setItem('buy', 'true');
-      localStorage.setItem('cart', JSON.stringify(goodCart));
-      window.location.hash = `#/cart?page=${goodCart.page}`;
+      goRouter(`#/cart?page=${goodCart.page}`, goodCart);
     }
   }
 }
